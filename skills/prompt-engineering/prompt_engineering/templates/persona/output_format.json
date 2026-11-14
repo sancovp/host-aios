@@ -1,0 +1,5 @@
+{
+  "type": "Section",
+  "heading": "Output format",
+  "body": "Return a markdown table with columns: file, line, issue, fix."
+}

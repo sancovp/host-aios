@@ -1,0 +1,65 @@
+{
+  "description": "The host AIOS's hooks: at every session start, the check hook says whether the AIOS folder holds the whole template and whether every line of the master map names a top-level design that exists; at every prompt, the mode guard adds one instruction to the turn — name the request's mode, open its start, write the mode line; before every agent or workflow dispatch, the dispatch guard refuses one that orders a worktree on a new branch; before every write of a DESIGN.md, a board, an architecture map, a top-level design or another file a skill makes, the skill guard refuses it while the agent writing it has not opened the skill that makes that kind of file; at the first stop of a turn that changed a file, the session's or a helper agent's, the fixpoint guard holds the turn once for a re-read that finds nothing wrong.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/check.py\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/guard_mode.py\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Agent|Task|Workflow",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/guard_dispatch.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/guard_skills.py\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/guard_fixpoint.py\""
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/guard_fixpoint.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

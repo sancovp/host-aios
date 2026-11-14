@@ -1,0 +1,1 @@
+The `design-toc` skill: `design_toc.py <project_dir> [--check|--init]` checks a project's DESIGN.md READ ORDER and creates, regenerates or checks its table of contents at `<project>/.claude/rules/design_toc.md`. Laws: the rules `26-canonical-design` and `design-docs-keep-a-toc`.

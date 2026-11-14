@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# PyPI dist name — bare `prompt-engineering` is taken, so use the `agent-` prefix (mirrors agent-skilltree).
+# Import name stays `prompt_engineering` (see [tool.setuptools] packages below).
+name = "agent-prompt-engineering"
+version = "0.2.0"
+description = "Deterministic prompt builder on pydantic-stack-core (every prompt = a MetaStack of RenderablePieces) + cognition chains + optional grammar gate — the shared base of the chaincompiler ecosystem."
+readme = "SKILL.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+# THE FOUNDATION: pydantic-stack-core (RenderablePiece + MetaStack — the blocks every prompt is made of).
+# The grammar gate (gate.py) runs on rulecatcher; the skill-packager places skills on skilltree (both lazy).
+dependencies = ["pydantic-stack-core>=0.1.4", "rulecatcher", "agent-skilltree>=0.2.1"]
+
+[tool.setuptools]
+packages = ["prompt_engineering"]
+
+[tool.setuptools.package-data]
+# templates/ ship INSIDE the package (render_template reads them at runtime, so the wheel must carry them).
+# examples/ stay at the repo root — dev/test fixtures only, not needed in the wheel.
+prompt_engineering = ["templates/*/*.json"]

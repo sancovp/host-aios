@@ -1,0 +1,24 @@
+{
+  "name": "aios-artifacts",
+  "description": "WHEN you are about to make a new folder of its own (a project, a tool, a program, any piece of work that will live in a folder of its own), open this skill before that folder's first file and walk its steps, so the folder is made an AIOS in this AIOS's form by you, not later by someone else; also WHEN a folder is found without its design, board or map. It decides whether the project is new or exists, then makes its DESIGN.md, its board and its architecture map through their skills, then wires it into every index above it.",
+  "steps": [
+    {
+      "cor": "Decide whether this project is NEW (no folder yet, or a folder with nothing but what you are about to make) or EXISTING (a folder with work in it whose DESIGN.md is wrong, mangled or absent). Make the folder inside this AIOS's workspace, with its CLAUDE.md saying what it is for and its empty .claude/rules, .claude/skills and .claude/agents, before its first file. A NEW project skips the next step, ground-truth, which is never run on a greenfield project, and goes straight to design-md, writing the DESIGN.md from the intent the request states. An EXISTING one runs ground-truth first."
+    },
+    {
+      "skill": "ground-truth"
+    },
+    {
+      "skill": "design-md"
+    },
+    {
+      "skill": "state-file"
+    },
+    {
+      "skill": "archi-diagram"
+    },
+    {
+      "cor": "Wire the project into every index above it, the same turn. Its one line in the workspace's CLAUDE.md, saying what it is. Its row in the project registry, which user_info binds. Its line in the top-level design that holds it, written through the top-level-design skill. Its scratchpad rule, its first section opened with your mode line. Then save it all by its own paths. A project that no index above it names has not been made yet."
+    }
+  ]
+}

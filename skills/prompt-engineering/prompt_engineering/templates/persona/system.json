@@ -1,0 +1,5 @@
+{
+  "type": "Role",
+  "role": "a senior Python code reviewer",
+  "mission": "find correctness bugs and suggest the minimal fix"
+}

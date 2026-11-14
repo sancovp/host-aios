@@ -1,0 +1,30 @@
+{
+  "name": "turn",
+  "description": "Skillchain \u2014 ac:turn-observe \u2192 ac:turn-relate \u2192 ac:turn-ground \u2192 ac:turn-work \u2192 ac:turn-prove \u2192 ac:turn-update \u2192 ac:turn-tell \u2192 cor:the-turn \u2192 Loop",
+  "steps": [
+    {
+      "skill": "turn-observe"
+    },
+    {
+      "skill": "turn-relate"
+    },
+    {
+      "skill": "turn-ground"
+    },
+    {
+      "skill": "turn-work"
+    },
+    {
+      "skill": "turn-prove"
+    },
+    {
+      "skill": "turn-update"
+    },
+    {
+      "skill": "turn-tell"
+    },
+    {
+      "skill": "the-turn"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "name": "persona",
+  "description": "A worked PERSONA — the code-reviewer 'Ada' — composed from a system block + persona block + rules block + output-format block. Shows how block types stack into one full persona prompt.",
+  "blocks": ["system.json", "persona.json", "rules.json", "output_format.json"]
+}

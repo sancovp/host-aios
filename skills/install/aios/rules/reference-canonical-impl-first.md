@@ -1,0 +1,6 @@
+# Reference the canonical impl FIRST
+
+TRIGGER:[about to build, or to RECOMMEND building, ANY connection/route/HTTP-server/SSE/frontend↔backend-wiring/agent/adapter/class in *USER*'s ecosystem · catching `build_server`/a route/an SSE handler/`EventSource`/`serve()` being authored from scratch · about to write "add an X" / "we should build an X" after studying an outside system]
+DO:[grep/find the existing canonical impl across the canonical home BEFORE the recommendation leaves your mouth · READ it · MIRROR it (route names, payload shapes, event field names, lifecycle) · pause and confirm an existing one is being copied · when one exists, recommend what the outside system adds TO it, never a second one]
+NOT:[author the shape from memory · recommend building a thing whose absence was never searched for]
+REFS:[frontend↔CAVEHTTPServer → agent-control-panel `ConductorChatModal` + `sancrev_routes` · agent-ON-cave → WakingDreamer/JournalAgent · CAVEHTTPServer routes → `cave/server/cave_http_server.py` · heaven agent → `BaseHeavenAgent` callback seam · Claude Agent SDK adapter → SDNA `base/sdna/sdna/runner.py` (`agent_step`) + `config.py` (`HermesConfig.to_sdk_options`), reached by `application/cave/cave/core/remote_agent.py` · tmux self-prompter → SDNA `sdna/selfbot.py`]

@@ -1,0 +1,123 @@
+"""
+grammar.py — the rulecatcher seam (PERSISTENT, connection-based): learn a chain-DSL's grammar from
+exemplars, gate a candidate against the ratified grammar, render the grammar for a prime block.
+
+Moved DOWN from `chaincompiler.bridge` (REBUILD-SPEC.md §4) so accc/corcc/sccc import it from the base
+instead of UP from chaincompiler. The honeyc-wrapping `compile_chain` stays in chaincompiler (§6).
+
+This is the PERSISTENT API — you pass a sqlite `Connection` + a `scope`: learn once, gate many, export
+the scope. The base's top-level `gate(text, exemplars)` (gate.py) is the separate EPHEMERAL convenience.
+"""
+from __future__ import annotations
+
+import json
+from dataclasses import dataclass
+from sqlite3 import Connection
+
+from rulecatcher.db import fetch_artifacts, list_rules
+from rulecatcher.engine import adopt_rules, catch_patterns
+from rulecatcher.linting import build_normalization_suggestions, lint_text
+from rulecatcher.models import ArtifactInput
+from rulecatcher.tokenize import line_token_kinds, line_token_texts, tokenize_text
+
+# closed-class kinds: the fixed vocabulary of a chain DSL (delimiters/operators/etc).
+# IDENTIFIER/NUMBER are OPEN class (slot fillers) — always allowed.
+_CLOSED_KINDS = {"SYMBOL", "OPERATOR", "OPEN_DELIM", "CLOSE_DELIM", "SEPARATOR", "KEYWORD"}
+
+
+@dataclass
+class ForeignToken:
+    """A closed-class token foreign to the learned vocabulary (the strict-gate finding)."""
+    token: str
+    kind: str
+    verdict: str = "syntax_break"
+
+
+def _closed_vocab(connection: Connection, scope: str) -> set[str]:
+    """The allowed closed-class token TEXTS, derived from the scope's learned example artifacts."""
+    vocab: set[str] = set()
+    for art in fetch_artifacts(connection, scope=scope):
+        for tl in tokenize_text(art.content):
+            for txt, kind in zip(line_token_texts(tl), line_token_kinds(tl, set())):
+                if kind in _CLOSED_KINDS:
+                    vocab.add(txt)
+    return vocab
+
+
+def foreign_tokens(connection: Connection, chain: str, *, scope: str) -> list[ForeignToken]:
+    """STRICT vocabulary check (the set-valued gate): any closed-class token whose text is foreign to the
+    learned vocabulary is a `syntax_break` — catches branch-point foreign tokens the positional rules miss.
+    Open-class tokens are always allowed."""
+    vocab = _closed_vocab(connection, scope)
+    if not vocab:                                   # nothing learned → nothing to whitelist against
+        return []
+    out: list[ForeignToken] = []
+    for tl in tokenize_text(chain):
+        for txt, kind in zip(line_token_texts(tl), line_token_kinds(tl, set())):
+            if kind in _CLOSED_KINDS and txt not in vocab:
+                out.append(ForeignToken(token=txt, kind=kind))
+    return out
+
+
+def learn(
+    connection: Connection,
+    chains: list[str],
+    *,
+    scope: str,
+    keywords: tuple[str, ...] = (),
+    min_confidence: float = 1.0,
+    rule_types: tuple[str, ...] = ("next_kind",),
+    label: str = "seed",
+) -> list:
+    """Catch the grammar of `chains` and ratify (adopt) the rigid rules.
+
+    Defaults to `next_kind` only: the SHAPE of the notation, not its vocabulary. A cognition-chain
+    notation's grammar is "an [Identifier] then ⇒ then ..." — not the specific step names. Adopting
+    `next_token` too would pin the corpus vocabulary and grow the grammar every time a new step name
+    appears. Pass rule_types=("next_kind","next_token") to also fix exact tokens.
+
+    Returns the adopted rule rows = the ratified grammar of the notation.
+    """
+    content = "\n".join(chains) + "\n"
+    catch_patterns(
+        connection,
+        [ArtifactInput(label=label, content=content)],
+        scope=scope,
+        keywords=list(keywords) or None,
+    )
+    pending = list_rules(connection, "pending", scope=scope)
+    ids = [
+        int(r["id"])
+        for r in pending
+        if float(r["confidence"]) >= min_confidence and r["rule_type"] in rule_types
+    ]
+    if ids:
+        adopt_rules(connection, ids, actor="prompt-engineering",
+                    reason=f"ratified {'/'.join(rule_types)} grammar (confidence >= {min_confidence:.2f})")
+    return list_rules(connection, "adopted", scope=scope)
+
+
+def gate(connection: Connection, chain: str, *, scope: str, strict: bool = False) -> tuple[list, list]:
+    """Lint a candidate chain against the ratified grammar. Returns (violations, fixes).
+    `strict=True` ALSO runs the closed-class vocabulary check (`foreign_tokens`), so foreign tokens at
+    branch points — which the positional rules can't govern — are caught as `syntax_break`. Opt-in, so
+    default behavior (and the rulecatcher tests) are unchanged."""
+    violations = lint_text(connection, chain, scope=scope, record_stats=False)
+    suggestions = build_normalization_suggestions(violations)
+    if strict:
+        violations = list(violations) + foreign_tokens(connection, chain, scope=scope)
+    return violations, suggestions
+
+
+def grammar_lines(adopted_rows: list) -> list[str]:
+    """Human-readable rendering of the ratified grammar (for the prime block)."""
+    lines: list[str] = []
+    for r in sorted(adopted_rows, key=lambda x: (-len(json.loads(x["prefix_json"])), -float(x["confidence"]))):
+        prefix = json.loads(r["prefix_json"])
+        kind = "tok" if r["rule_type"] == "next_token" else "kind"
+        lines.append(f"- [{kind}] after {prefix} → {r['expected_token']}  "
+                     f"({r['support']}/{r['total']}, conf {float(r['confidence']):.2f})")
+    return lines
+
+
+__all__ = ["learn", "gate", "grammar_lines", "foreign_tokens", "ForeignToken"]

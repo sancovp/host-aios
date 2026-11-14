@@ -1,0 +1,5 @@
+{
+  "name": "five_level",
+  "description": "The legacy World -> Egregore -> Deity -> Progenitor -> Agent model, as a PROMPT TEMPLATE. An example structure, not a default — each level is just a block payload in this folder.",
+  "blocks": ["world.json", "egregore.json", "deity.json", "progenitor.json", "agent.json"]
+}

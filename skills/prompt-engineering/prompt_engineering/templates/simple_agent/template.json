@@ -1,0 +1,5 @@
+{
+  "name": "simple_agent",
+  "description": "A one-block prompt template — proof that you add a template by DROPPING A FOLDER (no levels, no engine change).",
+  "blocks": ["agent.json"]
+}

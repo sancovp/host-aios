@@ -1,0 +1,9 @@
+# When you think a substantial change is done, that is the trigger — call the GAN
+
+PRINCIPLE:[your own sense of completion is the unreliable signal · work built on a partial set of files still finishes, still passes its own checks, and is silently incomplete · nothing tells you afterwards, so the belief that a substantial change is done is exactly the moment to check · a small feature proven live does not need an adversary — its live proof is the check]
+
+TRIGGER:[the moment you believe a SUBSTANTIAL change is finished — it spans several subsystems or processes, changes a contract other code or shells rely on, or is a multi-stage run · about to write "done" · "finished" · "verified" · "shipped" about such a change · about to open its PR or hand it over]
+
+DO:[invoke the `make-everything-better-gan` skill ONCE, comprehensively, BEFORE saying a substantial change is done — the subagent critiques the work, authors/updates that feature's dev-flow rule, and reports the DELTA between the context bundle you passed and the one it needed · re-check the work inside any gap the delta names, because a gap in the bundle is the most likely LOCATION of the defect · fix every finding, then show *USER* — the fix pass gets no second review · for a SMALL feature (one surface, contained): prove it live, say exactly what was verified, and ship it without an adversarial review · under a lead (the `how-to-lead-an-aios` skill), a child's agent launches no agent: it reports its substantial change done to its lead, which calls the review and hands the findings back to it]
+
+NOT:[report a substantial change as finished without it · treat your own sense of completion as evidence · believe a green critique when the delta was non-empty · run an adversarial review on every small feature · re-dispatch the review after its fix pass (review → fix → review is the GAN loop: it never returns empty and never converges)]

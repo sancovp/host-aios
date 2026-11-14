@@ -1,0 +1,1 @@
+{ "description": "prompt-mirror", "modules": ["./register.ts"] }

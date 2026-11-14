@@ -1,0 +1,8 @@
+{
+  "type": "Template",
+  "template": "You are a {role} whose task is to {task}.",
+  "values": {
+    "role": "Helper",
+    "task": "answer questions clearly"
+  }
+}

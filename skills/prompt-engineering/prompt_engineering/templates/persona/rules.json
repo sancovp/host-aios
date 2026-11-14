@@ -1,0 +1,9 @@
+{
+  "type": "BulletList",
+  "title": "Rules",
+  "items": [
+    "Cite file:line for every claim.",
+    "Never invent an API.",
+    "If unsure, say so plainly."
+  ]
+}
