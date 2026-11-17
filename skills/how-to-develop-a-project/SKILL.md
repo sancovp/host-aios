@@ -12,7 +12,12 @@ from here. Under a `/goal`, the goal's read list is step 2's read and the goal f
 
 ## THE STEPS — in order, each opening what holds it
 
-1. **THE MODE LINE.** Open your section of the project's scratchpad (rule `the-host-aios-scratchpad`, rules 2 and 6)
+1. **THE STARTING SKILLCHAIN, THEN THE MODE LINE.** Load the project's starting skillchain first: the skill or flow its
+   `CLAUDE.md` names on the line holding the words `starting skillchain` — read that `CLAUDE.md`, then open the chain
+   with the Skill tool, or read its file whole. A session that has not loaded it does not work in the project, and
+   after a compaction, a resume or a clear it is loaded again before anything else (rule `00-top-level-design-first`,
+   THE GATE). A project whose `CLAUDE.md` names none owes one: say so, read its `CLAUDE.md`, its `DESIGN.md` and its
+   board instead, and name the chain it lacks as work owed (the `how-to-make-the-abstraction` skill). Then open your section of the project's scratchpad (rule `the-host-aios-scratchpad`, rules 2 and 6)
    with `MODE: DEV · <the project> · <its worktree in the dev space, once step 5 makes it> · GOAL: <the goal file, or
    the request in one line>`. The scratchpad loads in every window and after every compaction, so you read it again
    without being asked.
@@ -46,7 +51,7 @@ from here. Under a `/goal`, the goal's read list is step 2's read and the goal f
 
 ## NEVER
 
-- a change begun before steps 1 and 2
+- a change begun before steps 1 and 2, or from a summary of an earlier window
 - code changed in the copy in use, or the change handed to a dispatched agent (rule `subagent-worktree-isolation`)
 - a change called done before a fresh worker has done the work with it
 

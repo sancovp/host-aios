@@ -1,7 +1,8 @@
 # 00 — THE READ IS SCOPED TO THE WORK (the top found through the master map; its top-level design is a table of contents, read wherever it names the project)
 
 FIRST ACTION — at every conversation start · resume · compaction summary · handed summary, BEFORE touching /
-editing / running / committing / answering:[
+editing / running / committing / answering — and after a compaction, a resume or a clear WORK IS REFUSED UNTIL THE
+READ IS DONE (THE GATE, below):[
 0. **UNDER A GOAL** → the goal's READ LIST, whole, at start and after every compaction; nothing beyond it.
 0b. **NAME THE MODE.** A WORK session — asked to make, produce or do something with a project — writes its mode line,
    reads its WORK board and calls the project's starting skillchain, which its `CLAUDE.md` names, and reads no design
@@ -27,6 +28,26 @@ editing / running / committing / answering:[
    rows the work touches.
 ]
 
+THE GATE:[
+- a summary is a start, never something to work from: after a compaction, a resume or a clear, and in any session
+  whose record begins with a summary, the session OWES A REHYDRATION, and until it is paid every tool call that does
+  work is refused — running a command, editing or writing a file, dispatching an agent, sending a message, starting
+  a session. Reading is never refused: the Read, Grep, Glob and Skill tools are how the debt is paid
+- WHAT IS OWED — under a goal: the goal file and every file its READ LIST names that exists · with no goal, for the
+  project the work is in: its `CLAUDE.md`, the starting skillchain that `CLAUDE.md` names, its `DESIGN.md`'s READ
+  ORDER, its board and its scratchpad rule
+- EVERY PROJECT A SESSION WORKS IN IS AN AIOS ([[00-every-dir-has-a-claude-and-projects-nest]] LAW 2): its `CLAUDE.md`
+  names its starting skillchain — on a line holding the words `starting skillchain` and then the skill's or the flow's
+  name in backticks — and its development skillchains are made accordingly; a session that has not loaded that chain
+  does not work there. A project whose `CLAUDE.md` names none OWES ONE, and until it has one its `CLAUDE.md`, its
+  `DESIGN.md` and its board are owed
+- HOW IT IS PAID: each owed file read whole with the Read tool AFTER that boundary — a file too large for one read, by
+  reads that together cover it; a skill, by opening it with the Skill tool. A read made before the boundary, a memory
+  file, a rule already loaded and the summary itself pay nothing
+- an installation's REHYDRATION GUARD computes the owed files from the session's own record and refuses the call,
+  listing them by full path; where no guard runs, the same read is owed before the first such call
+]
+
 THE ROLES:[
 - **THE MASTER MAP** = the global rule naming every top-level design, one line and a link each; its place is fixed,
   so it needs no binding ([[00-canonical-doc-paths]])
@@ -39,8 +60,9 @@ THE ROLES:[
 ]
 
 CLAUSES:[
-1. a compaction summary IS a conversation start — find the top, redo the wiring check and re-read only what the
-   pending step needs; the summary carries which project it was
+1. a compaction summary IS a conversation start — pay THE GATE's read, then find the top, redo the wiring check and
+   re-read what the pending step needs; the summary carries which project it was, never what that project's record
+   says
 2. an interrupted read RESUMES before anything else — finish the scoped read, then respond or act
 3. answering counts as working — a factual assertion requires its scoped canon read this window
 4. a SessionStart hook that orders a read orders THIS scoped read
@@ -49,7 +71,7 @@ CLAUSES:[
 ]
 DO:[say the top, the scope and the wiring verdict in one line before the first read · when no map loads and the
 installation has bound no top-level design, wired work reads what the tree actually has, deepest canon first]
-NOT:[read a top-level design for a project not wired into it · read another top's design · recurse every link · ask
+NOT:[work from a summary · work in a project whose starting skillchain is not loaded · read a top-level design for a project not wired into it · read another top's design · recurse every link · ask
 *USER* whether to read · substitute grep for reading a document you need]
 
 DISCIPLINE:[a development session: find the top → wiring check → scoped canon → act; a work session: its WORK board →
@@ -59,5 +81,6 @@ its top-level states doc move only when a canonical change reaches them]
 
 TRIGGER:[a conversation start · resume · compaction/summary event (⇒ name the mode; a development session finds the
 top, checks the wiring, then reads its scoped canon; a work session calls its starting skillchain) · about to open a top-level design (⇒ is it the top that holds the work, and is the work wired into it? then
-which sections?) · acting without the scoped canon read THIS window (⇒ stop and read it) · an interruption during
+which sections?) · a tool call refused by the rehydration guard (⇒ read every file the refusal lists, whole, then make the call
+again) · acting without the scoped canon read THIS window (⇒ stop and read it) · an interruption during
 the read (⇒ finish it first)]
