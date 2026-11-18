@@ -33,19 +33,21 @@ THE GATE:[
   whose record begins with a summary, the session OWES A REHYDRATION, and until it is paid every tool call that does
   work is refused — running a command, editing or writing a file, dispatching an agent, sending a message, starting
   a session. Reading is never refused: the Read, Grep, Glob and Skill tools are how the debt is paid
-- WHAT IS OWED — under a goal: the goal file and every file its READ LIST names that exists · with no goal, for the
-  project the work is in: its `CLAUDE.md`, the starting skillchain that `CLAUDE.md` names, its `DESIGN.md`'s READ
-  ORDER, its board and its scratchpad rule
+- WHAT IS OWED — the context the work was made from: every file the session itself read in the stretch the summary
+  replaced — by a read, by a search that returned its lines, by a command that printed it — less every file it edited
+  or wrote there, which is its own output; deduplicated, most recently read first. What fits a share of the window must
+  be read; the rest is named, to read where the work touches it. The summary says which work it was, never what those
+  files say
 - EVERY PROJECT A SESSION WORKS IN IS AN AIOS ([[00-every-dir-has-a-claude-and-projects-nest]] LAW 2): its `CLAUDE.md`
   names its starting skillchain — on a line holding the words `starting skillchain` and then the skill's or the flow's
   name in backticks — and its development skillchains are made accordingly; a session that has not loaded that chain
   does not work there. A project whose `CLAUDE.md` names none OWES ONE, and until it has one its `CLAUDE.md`, its
   `DESIGN.md` and its board are owed
-- HOW IT IS PAID: each owed file read whole with the Read tool AFTER that boundary — a file too large for one read, by
-  reads that together cover it; a skill, by opening it with the Skill tool. A read made before the boundary, a memory
-  file, a rule already loaded and the summary itself pay nothing
-- an installation's REHYDRATION GUARD computes the owed files from the session's own record and refuses the call,
-  listing them by full path; where no guard runs, the same read is owed before the first such call
+- HOW IT IS PAID: each owed file read whole AFTER that boundary — a file too large for one read, by reads that together
+  cover it. A read made before the boundary, a memory file, a rule already loaded and the summary itself pay nothing
+- an installation's REHYDRATION GUARD computes the owed files from the session's own record, prints them after the
+  compaction and refuses the call until they are read; where no guard runs, the session reads its own record of what it
+  read before the boundary, and the same read is owed before the first such call
 ]
 
 THE ROLES:[
