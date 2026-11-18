@@ -30,24 +30,23 @@ READ IS DONE (THE GATE, below):[
 
 THE GATE:[
 - a summary is a start, never something to work from: after a compaction, a resume or a clear, and in any session
-  whose record begins with a summary, the session OWES A REHYDRATION, and until it is paid every tool call that does
-  work is refused — running a command, editing or writing a file, dispatching an agent, sending a message, starting
-  a session. Reading is never refused: the Read, Grep, Glob and Skill tools are how the debt is paid
-- WHAT IS OWED — the context the work was made from: every file the session itself read in the stretch the summary
-  replaced — by a read, by a search that returned its lines, by a command that printed it — less every file it edited
-  or wrote there, which is its own output; deduplicated, most recently read first; every one of them must be read again.
-  The summary says which work it was, never what those
-  files say
+  whose record begins with a summary, the session OWES A REHYDRATION: the first thing it does is read — before running
+  a command, editing or writing a file, dispatching an agent or starting a session. Reading is never refused, and
+  neither is a message to another session or stopping one
+- THE LIST — every file the session itself read in the stretch the summary replaced — by a read, by a search that
+  returned its lines, by a command that printed it — less every file it edited or wrote there, which is its own output;
+  deduplicated, most recently read first. From it the session SELECTS the files the work rests on and reads them again,
+  whole, before doing anything else; what it only looked at while working it leaves. The summary says which work it
+  was, never what those files say
 - EVERY PROJECT A SESSION WORKS IN IS AN AIOS ([[00-every-dir-has-a-claude-and-projects-nest]] LAW 2): its `CLAUDE.md`
   names its starting skillchain — on a line holding the words `starting skillchain` and then the skill's or the flow's
   name in backticks — and its development skillchains are made accordingly; a session that has not loaded that chain
   does not work there. A project whose `CLAUDE.md` names none OWES ONE, and until it has one its `CLAUDE.md`, its
   `DESIGN.md` and its board are owed
-- HOW IT IS PAID: each owed file read whole AFTER that boundary — a file too large for one read, by reads that together
-  cover it. A read made before the boundary, a memory file, a rule already loaded and the summary itself pay nothing
-- an installation's REHYDRATION GUARD computes the owed files from the session's own record, prints them after the
-  compaction and refuses the call until they are read; where no guard runs, the session reads its own record of what it
-  read before the boundary, and the same read is owed before the first such call
+- a read made before the boundary, a memory file, a rule already loaded and the summary itself are not the read
+- an installation's REHYDRATION GUARD computes the list from the session's own record and gives it after the
+  compaction; a call that does work made before the session has read anything since the boundary is refused, and the
+  refusal returns the list and the instruction; where no guard runs, the session finds the same list in its own record
 ]
 
 THE ROLES:[
