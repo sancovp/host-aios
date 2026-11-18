@@ -2,7 +2,7 @@
 
 FIRST ACTION — at every conversation start · resume · compaction summary · handed summary, BEFORE touching /
 editing / running / committing / answering — and after a compaction, a resume or a clear WORK IS REFUSED UNTIL THE
-READ IS DONE (THE GATE, below):[
+READ IS DONE BY THE SESSION ITSELF (THE GATE, below):[
 0. **UNDER A GOAL** → the goal's READ LIST, whole, at start and after every compaction; nothing beyond it.
 0b. **NAME THE MODE.** A WORK session — asked to make, produce or do something with a project — writes its mode line,
    reads its WORK board and calls the project's starting skillchain, which its `CLAUDE.md` names, and reads no design
@@ -31,8 +31,8 @@ READ IS DONE (THE GATE, below):[
 THE GATE:[
 - a summary is a start, never something to work from: after a compaction, a resume or a clear, and in any session
   whose record begins with a summary, the session OWES A REHYDRATION: the first thing it does is read — before running
-  a command, editing or writing a file, dispatching an agent or starting a session. Reading is never refused, and
-  neither is a message to another session or stopping one
+  a command, editing or writing a file, dispatching an agent or starting a session. Nothing enforces it: it is the
+  session's own act
 - THE LIST — every file the session itself read in the stretch the summary replaced — by a read, by a search that
   returned its lines, by a command that printed it — less every file it edited or wrote there, which is its own output;
   deduplicated, most recently read first. From it the session SELECTS the files the work rests on and reads them again,
@@ -44,9 +44,8 @@ THE GATE:[
   does not work there. A project whose `CLAUDE.md` names none OWES ONE, and until it has one its `CLAUDE.md`, its
   `DESIGN.md` and its board are owed
 - a read made before the boundary, a memory file, a rule already loaded and the summary itself are not the read
-- an installation's REHYDRATION GUARD computes the list from the session's own record and gives it after the
-  compaction; a call that does work made before the session has read anything since the boundary is refused, and the
-  refusal returns the list and the instruction; where no guard runs, the session finds the same list in its own record
+- an installation's REHYDRATION LIST is computed from the session's own record and given after the compaction; it
+  blocks nothing; where none is given, the session finds the same list in its own record
 ]
 
 THE ROLES:[
@@ -82,6 +81,6 @@ its top-level states doc move only when a canonical change reaches them]
 
 TRIGGER:[a conversation start · resume · compaction/summary event (⇒ name the mode; a development session finds the
 top, checks the wiring, then reads its scoped canon; a work session calls its starting skillchain) · about to open a top-level design (⇒ is it the top that holds the work, and is the work wired into it? then
-which sections?) · a tool call refused by the rehydration guard (⇒ read every file the refusal lists, whole, then make the call
-again) · acting without the scoped canon read THIS window (⇒ stop and read it) · an interruption during
+which sections?) · the rehydration list given after a compaction (⇒ select from it the files the work rests on and read them, before
+anything else) · acting without the scoped canon read THIS window (⇒ stop and read it) · an interruption during
 the read (⇒ finish it first)]

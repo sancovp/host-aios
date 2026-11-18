@@ -1,7 +1,7 @@
 {
   "name": "host-aios-mod",
   "description": "prompt-mirror's mod carrying the host AIOS's boot config and rules: it adds them to a session's instructions when nothing that session loads holds them, and mirrors what Claude Code sends the model into a YAML file per session, changed from one control file.",
-  "version": "0.6.10",
+  "version": "0.6.12",
   "author": {
     "name": "sancovp",
     "url": "https://github.com/sancovp"
