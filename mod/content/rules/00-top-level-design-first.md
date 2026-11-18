@@ -35,8 +35,8 @@ THE GATE:[
   a session. Reading is never refused: the Read, Grep, Glob and Skill tools are how the debt is paid
 - WHAT IS OWED — the context the work was made from: every file the session itself read in the stretch the summary
   replaced — by a read, by a search that returned its lines, by a command that printed it — less every file it edited
-  or wrote there, which is its own output; deduplicated, most recently read first. What fits a share of the window must
-  be read; the rest is named, to read where the work touches it. The summary says which work it was, never what those
+  or wrote there, which is its own output; deduplicated, most recently read first; every one of them must be read again.
+  The summary says which work it was, never what those
   files say
 - EVERY PROJECT A SESSION WORKS IN IS AN AIOS ([[00-every-dir-has-a-claude-and-projects-nest]] LAW 2): its `CLAUDE.md`
   names its starting skillchain — on a line holding the words `starting skillchain` and then the skill's or the flow's
