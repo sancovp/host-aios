@@ -2,7 +2,7 @@
 
 <docsys kind="design" role="law"/>
 
-TRIGGER:[creating or naming any design/spec doc (⇒ it is DESIGN.md or it is a detail doc with a pointer) · creating ANY document — a detail design, a pattern, a reference, a note's record (⇒ its line in its parent design, the same commit) · any architectural change (⇒ DESIGN.md in the SAME commit) · a child `DESIGN.md` added, renamed or removed (⇒ the parent's READ ORDER rewritten, the same commit) · finding a doc that contradicts DESIGN.md · a feature not yet built (⇒ mark it ASPIRATIONAL) · about to delete a design doc (⇒ roll IN, leave a pointer; deletion is *USER*'s per-file call) · about to write a ruling into a note, or into a document nothing loads where the ruling fires]
+TRIGGER:[creating or naming any design/spec doc (⇒ it is DESIGN.md or it is a detail doc with a pointer) · creating ANY document — a detail design, a pattern, a reference, a note's record (⇒ its line in its parent design, the same commit) · any architectural change (⇒ DESIGN.md in the SAME commit) · a child `DESIGN.md` added, renamed or removed (⇒ the parent's READ ORDER rewritten, the same commit) · finding a doc that contradicts DESIGN.md · a feature not yet built (⇒ its row on the project's board, short of its last state; the design states it as part of the final state, in the step or version that brings it) · a design found holding a current state (⇒ moved word for word into its marked section, then into its boards as rows) · about to delete a design doc (⇒ roll IN, leave a pointer; deletion is *USER*'s per-file call) · about to write a ruling into a note, or into a document nothing loads where the ruling fires]
 CANONICAL DOCS (the only three in the entire tree):[
 1. each top AIOS's TOP-LEVEL DESIGN — the cover over every `DESIGN.md` beneath that top, outside its home-unknown band; THE MASTER MAP names every top ([[00-canonical-doc-paths]])
 2. the `DESIGN.md` of each PROJECT — **a project is ONE ENTITY: its own abstraction, running on its own context; a different abstraction is a different project, with or without code of its own** (a codebase is one kind of entity; the network that sells products, the deployment that runs them for customers, a book, are projects exactly as a codebase is; a concern spanning several codebases is its own project, never a section of each codebase's design) — **ONE per project, never one per dir** (agent-rts has ONE; `render/`, `feeders/`, `examples/` do NOT get their own — a subdir's design is a SECTION of its project's DESIGN.md). A project NESTED inside another (exoblend inside agent-rts) is its own project and keeps its own; a sub-PACKAGE (the wow pack inside cave-teams) is not — it rolls up.
@@ -15,14 +15,16 @@ DO:[
 - name every canonical DESIGN document `DESIGN.md` (nothing else)
 - roll a `XYZ.md` design/spec doc's content INTO the DESIGN.md of the project it sits in, then leave the source as a pointer
 - give every new document its one-line summary and link in its parent design — the section that owns its topic, or the folder's `CLAUDE.md` — in the same commit that makes it
-- treat DESIGN.md as the single source of structural truth (a decision not in it does not exist, or is `ASPIRATIONAL:`)
-- update DESIGN.md in the SAME commit as any architectural change, its READ ORDER with it, and append what changed, the reading it replaced and why to the `CHANGELOG.md` beside it — DESIGN.md itself states only the current design
-- mark not-yet-built features `ASPIRATIONAL:` (a commitment, not a lie)
+- treat DESIGN.md as the single source of structural truth: the intended final state of what it designs and the steps or versions by which it evolves, in order (a decision not in it does not exist)
+- update DESIGN.md in the SAME commit as any architectural change, its READ ORDER with it, and append what changed, the reading it replaced and why to the `CHANGELOG.md` beside it — DESIGN.md itself states only the design: the final state and its steps
+- state a part not yet reached as part of the final state and, where it comes later, in the step or version that brings it; whether a part is reached is a row of the project's board, never a mark or a sentence in the design
+- move every current state a design is found holding — built or not, how far, measured, missing, in pieces — word for word into one section right after its READ ORDER, headed `⛔ STATE WRITTEN HERE BY MISTAKE — MOVE IT INTO THE STATES FILES BEFORE ANY OTHER WORK HERE`, splitting a sentence that states both, so the part saying where it stands moves and the part stating the final state stays; then, as the first work of every session in that project, move each statement into its board as rows, defining any state it needs, and remove the section once it is empty
 - make other docs excerpt/link/point to DESIGN.md
 - banner a reference-detail doc "REFERENCE DETAIL — READ when its topic is the active task; NOT deprecated, NOT skippable" · keep it fully in the doc tree (read, drilled as a breadcrumb, the DETAIL layer under DESIGN.md's rows)
 - before a version leaves, run the reachability check from the design and the read-order check on the project, bare, and act on what they say ([[00-docsys]] THE PATTERNS UP FRONT)
 ]
 NOT:[
+- write a current state into a design — built or not, how far, measured, missing, in pieces — or mark a part as not reached, by a word, a tag or a sentence
 - name a canonical DESIGN doc anything but DESIGN.md
 - let another doc contradict DESIGN.md
 - leave a document no parent design or folder index links, or write a ruling where nothing loads it at its trigger

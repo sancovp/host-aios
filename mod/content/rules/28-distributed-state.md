@@ -3,7 +3,12 @@
 <docsys kind="states" role="law"/>
 
 SHAPE:[
-- `DESIGN.md` = PROSE, section by section, where a SECTION IS A FEATURE, stating the current truth only
+- `DESIGN.md` = PROSE, section by section, where a SECTION IS A FEATURE, stating the intended final state and the steps
+  by which it evolves, never where anything stands
+- **EVERY CURRENT STATE IS A ROW OF A BOARD, AND LIVES NOWHERE ELSE** — whether a part is built, how far it has come,
+  what was measured, what is missing, what stands in pieces: a row at the states its dev flow defines, never a sentence
+  in a design, a `CLAUDE.md`, a rule, a skill, a note or a scratchpad · a position no dev flow defines is defined in the
+  same change: its dev flow states the state, its table gets the column, and the row is written with them
 - a feature may have its own `DESIGN.md` in its own dir
 - EVERY dir with a `DESIGN.md` has a `_states` rule — ONE PER IDENTITY: a project's AIOS has two, WORK (using the
   thing, in the copy in use) and DEV (building its next version, in a dev space — [[top-level-session-worktree]]),

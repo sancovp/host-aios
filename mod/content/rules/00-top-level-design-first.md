@@ -76,7 +76,7 @@ NOT:[work from a summary · work in a project whose starting skillchain is not l
 
 DISCIPLINE:[a development session: find the top → wiring check → scoped canon → act; a work session: its WORK board →
 its starting skillchain · ONE thing finished before the next starts · the doc
-tree is LIVE STATE — rewrite the scope's `DESIGN.md` + board whenever what they state changes; a top-level design +
+tree is kept current — rewrite the scope's `DESIGN.md` whenever its ruling changes and its board whenever a state moves; a top-level design +
 its top-level states doc move only when a canonical change reaches them]
 
 TRIGGER:[a conversation start · resume · compaction/summary event (⇒ name the mode; a development session finds the

@@ -1,6 +1,6 @@
 ---
 name: archi-diagram
-description: Author the architecture diagrams a project owes. A mermaid flowchart per altitude, subgraphs marking boundaries, arrows meaning dependency direction, every external dep ending AT ITS SEAM because a dep's internals are its own architecture, plus the three-column general-specific-code bijection. THE LAW is rule 23
+description: Author the architecture diagrams a project owes. A mermaid flowchart per altitude, subgraphs marking boundaries, arrows meaning dependency direction, every external dep ending AT ITS SEAM because a dep's internals are its own architecture, plus the three-column general-specific-code bijection, drawing the final architecture with no mark of what is built, which is its board's. THE LAW is rule 23
 kind: attention-chain
 ---
 

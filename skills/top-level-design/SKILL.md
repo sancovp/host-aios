@@ -24,7 +24,7 @@ On a top-level design it REFUSES, naming the line, the kind and the reason: a se
 a last line that is not `AND THAT'S THE ARCHITECTURE.` · an opening that does not say what the document is, how to
 read it, how to change it and where progress lives · a date · a quote or the user's name · a replaced, superseded or
 corrected reading · the document's or the system's history · a patch block · a moved stub · a state-of-construction
-word · a section grown past a bridge (over its word budget, or carrying file:line, ports and counts).
+word (where each thing stands is a row of the top-level states doc and the boards beneath it) · a section grown past a bridge (over its word budget, or carrying file:line, ports and counts).
 
 On the map it REFUSES: no title line · a map line with no link, or more than one · a link that resolves to nothing · a
 line over 200 characters · two lines naming one top · any text that is not a line.

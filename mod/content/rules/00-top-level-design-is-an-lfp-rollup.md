@@ -11,7 +11,7 @@ SHAPE:[
 - AN EXPLAINED TABLE OF CONTENTS of the tree of documents holding everything the system does: every
   section is a short BRIDGING statement + the LINKS to where its detail lives, and the bridges, read in
   sequence top to bottom, explain the ENTIRE architecture · every project and how they interrelate · the
-  vision · where each thing's state lives — ONE CONTINUOUS DOCUMENT, as it is NOW · a bridge that grows
+  vision · where each thing's state lives, never the state itself — ONE CONTINUOUS DOCUMENT, the architecture as ruled now · a bridge that grows
   into the detail it points at is the violation; that detail moves to its own document and the bridge stays
 - LFP ROLL-UP: OVERVIEW → PARTS → ATTRIBUTES → COMPOSE · every part defined (what · when · how · utility),
   rolled up to the least fixed point, then composed granularly · a flat list is the failure

@@ -63,7 +63,7 @@ A project's `workspace/` is a work path only where nothing that acts when the de
 - a project nothing publishes or deploys: its `workspace/` is a work path at once;
 - a project a publisher or a deploy reaches: its `workspace/` is a work path once that system leaves the project's own
   `workspace/` out — of its copy, its change check and its choice of what a change touches — as that system's own
-  design states with no `ASPIRATIONAL:` mark. Read that design before the save. Until it does, the project's work is
+  design states and its own board shows that part built. Read that design and that board before the save. Until it does, the project's work is
   saved beside its folder, never inside it: the same `workspace/<kind>/<piece>/` shape, in a folder named
   `<project>-workspace/` next to the project's folder, outside every folder that publishes or deploys.
 

@@ -9,7 +9,8 @@ DO:[OPEN THE `archi-diagram` SKILL FIRST — the Skill tool, by its name, before
 `<project>/.claude/rules/21-architecture-diagrams.md` · draw THE STACK: the project's layers top to bottom as a
 Mermaid `flowchart TB` — a `subgraph` per layer or boundary, arrows = dependency direction (who calls whom),
 `classDef` colours per layer · draw it FROM DESIGN.md: every feature the design names is a box on the stack, so
-the stack exists from the moment the design does, each unbuilt box marked `ASPIRATIONAL` · end every external
+the stack draws the final architecture from the moment the design does, and which boxes are built is the board's,
+never a mark on the map · end every external
 dependency AT ITS SEAM (one box: what it is + where it plugs in) · place every dev flow (`22-seq-*`) on the box it
 runs through · one diagram per altitude, a section each, never a second file · build the bijective mapping
 (general ↔ specific ↔ code, three interlocking columns, every concept in all three) for every system, blog or
@@ -27,13 +28,13 @@ flowchart TB
   classDef dep fill:#fff8e1,stroke:#ff8f00,stroke-dasharray:4 3;
 
   subgraph SURFACE["SURFACE — how the user reaches it"]
-    CLI["cli.py — parses commands, prints results · ASPIRATIONAL"]:::surface
+    CLI["cli.py — parses commands, prints results"]:::surface
   end
   subgraph CORE["CORE — the rules of the thing"]
-    NOTES["notes.py — add · list · search · ASPIRATIONAL"]:::core
+    NOTES["notes.py — add · list · search"]:::core
   end
   subgraph STORE["STORE — where state lives"]
-    FILE["notes.json — one file, read and written whole · ASPIRATIONAL"]:::store
+    FILE["notes.json — one file, read and written whole"]:::store
   end
   subgraph DEPS["EXTERNAL — their internals are not ours"]
     STD["python stdlib json · SEAM: load / dump"]:::dep

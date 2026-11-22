@@ -37,10 +37,11 @@ the mode that changes a project; a work session, which uses one, starts from the
    then only the links the work needs.
 2. TALK → contextualize the subsystem THROUGH that canon → drill its BREADCRUMBS to the leaves.
 3. AN IDEA LANDS → rewrite, in three places, same turn:
-     a. the DESIGN.md that OWNS it          → the design itself, rewritten to state it
+     a. the DESIGN.md that OWNS it          → the design itself, rewritten to state it as part of the final state,
+                                               in the step or version that brings it
      b. THE TOP-LEVEL STATES DOC            → the row, marked OUTSTANDING
         (a ROLE — [[00-canonical-doc-paths]]; bound per installation, never a filename here)
-     c. that subsystem's OWN `_states.md`   → the micro-level DONE states
+     c. that subsystem's OWN `_states.md`   → its rows, where it stands — the one place a state is written
 4. WRITE THE GOAL — its READ LIST names the dev flows (`22-seq-*`) the work follows.
 ```
 
@@ -60,8 +61,12 @@ top-level design → the DESIGN.md that owns them → that subsystem's per-featu
 
 ## THE READ IS SCOPED BY THE GOAL, AND THE DEV FLOWS CARRY IT
 
-- **The goal names the reads for THAT feature** — the most specific, only-the-required version of the
-  context. A goal may scope away anything, the top-level design and the top-level states doc included.
+- **A GOAL CARRIES THE NEXT PLANNED RELEASE VERSION, WHOLE.** The design stages the work as planned release versions;
+  a goal's table holds every deliverable of the next one not marked HELD, and the version ships once, whole, judged
+  complete by the session that builds it.
+- **The goal names the reads** — the most specific, only-the-required version of the context: the design's READ
+  ORDER, its table of contents, the boards and the dev flows at start; each row's own sections and files as that row's
+  stage is reached. A goal may scope away the top-level design and the top-level states doc.
 - **⛔ NOT "the top-level design all the way down + the top-level states doc in full, always."** That is the
   SCOPING conversation's read, and paying it in a goal's run burns the window before the work starts.
 - **THE DEV FLOWS ACCUMULATE.** A feature's dev flow (`22-seq-<feature>.md`) states the feature's procedure AND
@@ -84,8 +89,7 @@ says WHERE the dep plugs in and stops (a dep's internals are its own architectur
 system look many times its real size).
 
 TRIGGER:[any conversation start (decide: scoping or a goal's run?) · an idea landing in conversation (⇒ DESIGN.md +
-OUTSTANDING row + `_states.md`, same turn) · writing any goal (⇒ its read list is scoped to the feature and
-names its dev flows) · about to read the top-level design inside a goal's run (⇒ stop; read only what
+OUTSTANDING row + `_states.md`, same turn) · writing any goal (⇒ it carries the next planned release version whole; its read list names its dev flows) · about to read the top-level design inside a goal's run (⇒ stop; read only what
 the goal names) · new architecture (⇒ a new dev flow, placed on the architecture map) · about to edit code
 (⇒ the tree must explain every dir involved, and the feature's execution boundary must be read line-by-line
 first)]

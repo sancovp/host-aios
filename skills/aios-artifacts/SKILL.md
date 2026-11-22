@@ -23,7 +23,7 @@ State the conclusion, then carry it forward as the input to the next step.
 Invoke the **ground-truth** skill (no extra input)
 
 ## Step 3 — invoke skill `design-md`
-*Author or repair the ONE DESIGN.md a project owes. Prose, one section per FEATURE, unbuilt things marked ASPIRATIONAL, a detail doc rolled IN with a pointer left behind, updated in the same commit as the change it describes. THE LAW is rule 26 — one per PROJECT never per dir, named DESIGN.md and nothing else, and a loading mechanism is never a design doc*
+*Author or repair the ONE DESIGN.md a project owes. Prose, one section per FEATURE, the intended final state and the steps by which it evolves — never where anything stands, which is a row of its boards; a state found in it moved word for word into its marked section, then into the boards — a detail doc rolled IN with a pointer left behind, updated in the same commit as the change it describes. THE LAW is rule 26 — one per PROJECT never per dir, named DESIGN.md and nothing else, and a loading mechanism is never a design doc*
 
 Invoke the **design-md** skill (no extra input)
 

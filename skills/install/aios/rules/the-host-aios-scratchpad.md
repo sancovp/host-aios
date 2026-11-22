@@ -14,9 +14,10 @@ every window shares it — change it with the Edit tool only, one line at a time
    (`how-to-save-work`), and its ref in this file names that file.
 2. **A PROJECT SCRATCHPAD HAS THREE PARTS:** a first line naming this file as its law · THE REFS — one line per
    undone, rolled-up task or sub-scratchpad with open work · a CURRENT TASK section for each piece of work in
-   progress, headed by that piece and not rolled up, where the window working on it accumulates every piece of
-   information related to doing it, each claim dated (`✅ MEASURED <date>` checked live · `⏳ AS OF <date>` read from a
-   record); a later finding edits the earlier line; no window writes in another's section while its task is in
+   progress, headed by that piece and not rolled up, where the window working on it keeps what it needs to do
+   it — each line a command with the moment it fires (`WHEN … → …`), pointing at the board row that holds where that
+   work stands; a state the window finds — built or not, measured, missing — is written as a row of the board, never
+   here; a later finding edits the earlier line; no window writes in another's section while its task is in
    progress. The section's first line is the window's MODE LINE — `MODE: DEV or WORK · <the project> · <where it
    works: its worktree in the dev space, or the project's workspace> · GOAL: <the goal file, or the request in one
    line>` — written into the scratchpad with the Write or Edit tool, since a line said only in a reply is not there to
@@ -43,7 +44,7 @@ every window shares it — change it with the Edit tool only, one line at a time
    names that file.
 7. **NEVER OVER 20KB**, this file or any scratchpad (`wc -c`). Over it means a roll-up is owed — do it first.
 8. **NOTES GO ON A SCRATCHPAD AND NOWHERE ELSE** — never in a `_states` file, a `DESIGN.md`, a `CLAUDE.md` or any
-   other rule.
+   other rule; and a scratchpad holds no state, which is a row of a board and is written nowhere else.
 
 ---
 

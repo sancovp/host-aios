@@ -1,6 +1,6 @@
-# Rules are LIVE STATE — every rule states what is true now
+# Rules are kept LIVE — every rule states the instruction that is true now
 
-PRINCIPLE:[every rule in context is live state, never passive reference · RULES ARE THE WAY INSTRUCTIONS
+PRINCIPLE:[every rule in context is a live instruction, never passive reference · RULES ARE THE WAY INSTRUCTIONS
 CHANGE · a rule that no longer matches reality, or that *USER* says must change, is a bug until it is
 rewritten]
 DO:[REWRITE a rule the same turn anything makes it stale, incomplete or contradicted — an action, a learned

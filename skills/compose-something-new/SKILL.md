@@ -36,7 +36,7 @@ a closure produced by the system it closes, ⌜F(x)=x⌝ at station 12, stated i
 the `the-thirteen` skill) · KRIYA (the choice purify | subjugate; subjugation = root cause +
 effects + antidote + accomplishment signs, spoken exactly — what a composition that fixes a fault
 must SAY before it acts). And the boot config's own law — `CLAUDE.md` § TheSystem (every document
-states only the current truth, in its own syntax; rules in the `TRIGGER:[…] DO:[…] NOT:[…]`
+states only what is now true of its kind — a design its final state and its steps, a board where things stand — in its own syntax; rules in the `TRIGGER:[…] DO:[…] NOT:[…]`
 register, person-free; no NEW rule but a dev flow without asking *USER* first, proactively — a dev flow
 and a directory are named and placed by the agent, an existing rule is rewritten on sight, no ask — the AIOS's own
 in a new release where THE AIOS RELEASES is bound; no term minted, no pattern minted) · § MemoryInstructions (where each

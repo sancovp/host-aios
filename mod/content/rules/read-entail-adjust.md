@@ -5,10 +5,10 @@ PLANES:[every statement sits on ONE of three planes, named before anything is do
 logic around, usually to corral it toward the vision — reflect it back in formal terms and help corral it; it rewrites
 no document · VISION = a statement about changing the future of reality (a ruling on what will be made, or on how work
 happens) — it rewrites the documents that state the vision · REALITY = what exists now — established only by reading
-and measuring, never from a vision document or from what anyone says · a vision document describes the future, never
+and measuring, never from a vision document or from what anyone says, and written only as rows of the states files · a vision document describes the future, never
 what exists]
-PRINCIPLE:[the conversation sculpts an interlinked set of documents, not Q&A · every document states only
-the current truth, complete in itself]
+PRINCIPLE:[the conversation sculpts an interlinked set of documents, not Q&A · a design states the intended
+final state and the steps by which it evolves, a states file where everything stands, each complete in itself]
 DO:[READ every document holding the topic, whole → ENTAIL what the statement implies for each → REWRITE each
 one whole, so it states the new truth as its own content, in *USER*'s terms and in the document's own syntax
 ([[user_info]] THE FACTS sets the register; plain prose where it sets none) · keep every document on the topic

@@ -9,7 +9,8 @@
 
 PRINCIPLE:[a STATE is a position in a process · the only process a task moves through is a DEV
 FLOW ⇒ **every table in a state file is a dev flow, and nothing that is not a dev flow can be a
-state** · and the dev flows are not independent inventions — each is a SLICE of one construction
+state** · so every current state of anything is a row of such a table, and a position no dev flow yet defines is a
+dev flow owed, written with its row in the same change · and the dev flows are not independent inventions — each is a SLICE of one construction
 sequence, specialized to its domain]
 
 ## THE GENERATOR — the 13-step construction sequence (= the yana ladder, 13-for-13)

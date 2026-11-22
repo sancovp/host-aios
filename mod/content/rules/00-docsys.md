@@ -26,7 +26,7 @@ new release
 | artifact | the LAW (global) | THE TEMPLATE | per-project instance |
 |---|---|---|---|
 | THE SHAPE (how work is spent) | `00-the-work-loop` | — (it is the shape) | — |
-| DESIGN.md | `26-canonical-design` | its READ ORDER first, then prose, one section per FEATURE, current truth only; ASPIRATIONAL: marks unbuilt | `<project>/DESIGN.md` |
+| DESIGN.md | `26-canonical-design` | its READ ORDER first, then prose, one section per FEATURE: the intended final state and the steps to it, never where it stands | `<project>/DESIGN.md` |
 | THE TREE | `00-the-work-loop` § TREE LAW | root `20-dir-tree.md` IS the worked template | `<repo>/.claude/rules/20-dir-tree.md` |
 | THE ARCHITECTURE MAP (the stack diagram) | `23-architecture-layer` | rule 23's worked stack (flowchart TB · subgraph = layer/boundary · arrow = dependency · deps end at their seam · drawn from DESIGN.md, before any code · every dev flow placed on it) | `<project>/.claude/rules/21-architecture-diagrams.md` |
 | DEV FLOWS | `22-activity-flow` + `28b` (THE GENERATOR — never invent, specialize) | 28b's worked table + diagram | lifecycle → a states TABLE · procedure → `22-seq-<feature>.md` |

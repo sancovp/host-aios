@@ -15,7 +15,7 @@ check, the `top-level-design` skill's `check_top_level_design.py --map <the map>
 that resolves to nothing, a line over 200 characters, two lines naming one top, and any text that is not a line]
 CANONICAL ANCHORS (exactly two top-level docs at the TOP of each top AIOS — a ROLE each, which the map names and the
 install binds):[
-1. **THE TOP-LEVEL DESIGN** — the top-down running map / LIVE STATE of what that top holds; the cover over every
+1. **THE TOP-LEVEL DESIGN** — the top-down running map of what that top holds, as ruled now — never where it stands; the cover over every
    `DESIGN.md` beneath it — its line on THE MASTER MAP names it
 2. **THE TOP-LEVEL STATES DOC** — that top's table of its projects, one row each, OUTSTANDING or CLEAR, linking down
    to each one's boards ([[28-distributed-state]]): redundant by construction, kept for closure, so the shape every
@@ -26,8 +26,8 @@ THE BINDING:[THE TOP-LEVEL DESIGN and THE TOP-LEVEL STATES DOC are the map's ent
 one top, and its TOP-LEVEL STATES DOC binding that top's ledger]
 LAW:[account for everything beneath a top outside its home-unknown band ([[canonical-source-dirs]] LAW 0) INSIDE one of
 that top's two anchors (or a `DESIGN.md` they govern — rule 26) · in a session with no goal running, find the top
-through the map and read its top-level design FIRST ([[00-top-level-design-first]]) · keep every anchor LIVE STATE —
-rewritten to the current truth · cite each top by the path its map line names — or its binding, where no map loads]
+through the map and read its top-level design FIRST ([[00-top-level-design-first]]) · keep every anchor current —
+the design rewritten the turn its ruling changes, the states doc the turn a state moves · cite each top by the path its map line names — or its binding, where no map loads]
 MOVING A BOUND CANONICAL:[
 - leave a SYMLINK at the old path, so both addresses write the same file
 - freeze the pre-move copy beside it — a moved canonical keeps its archive

@@ -38,6 +38,14 @@ A project's AIOS has two identities, so a project has two boards, both in its `.
 as its DEV board until it has work to track; the WORK board is made the first time it does. A row goes on the board
 of the identity whose work it tracks, never on the other.
 
+## EVERY STATE IS A ROW — and is written nowhere else (rule 28)
+
+Where anything stands — built or not, how far, measured, missing, in pieces — is a row of a board, and it is written
+nowhere else: never in a design, a `CLAUDE.md`, a rule, a skill, a note or a scratchpad. A position no dev flow yet
+defines is defined in the same change as its row: the dev flow (a `22-seq-<feature>.md`, or the how-to skill that
+states its states) names the state, the table gets its column, then the row is written. A design found holding state
+keeps it in its marked section only until it is moved here, as rows.
+
 ## Chain (custom syntax)
 ```rune
 [AnswerTheFourQuestions] ⇒ [SpecializeTheSequence] ⇒ [BoardLifecycleOnly] ⇒ [MarkEachReachedState] ⇒ [HangDetailByPointer] ⇒ |PositionMap|

@@ -18,7 +18,7 @@ LAW:[
     changes — or inside a project's own `workspace/`: at once where nothing that acts when the default branch moves
     reaches that project; where a publisher or a deploy reaches it, once that system leaves the project's own
     `workspace/` out — of its copy, its change check and its choice of what a change touches — as its own design
-    states with no `ASPIRATIONAL:` mark, and until then the project's work is saved beside its folder, never inside
+    states and its own board shows that part built, and until then the project's work is saved beside its folder, never inside
     it. Nothing in a workspace is published but a folder named on purpose as a published artifact in the publisher's
     list. The project's program is never changed in a workspace. A project's scratchpad and notes are work; a goal file its writer puts
     on the default branch is work.

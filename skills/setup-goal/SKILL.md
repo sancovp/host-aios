@@ -15,8 +15,17 @@ description: Write a /goal for a long autonomous run. Use when *USER* says "set 
   prompt is the same short instruction every time: read the goal file, complete its table of stages, keep the
   table, the checksums and the boards updated as you go, follow the design. The goal judges the state of the table,
   and the table can be about anything.
-- **THE GOAL FILE HOLDS THE TABLE AND ITS CONDITIONS, EXHAUSTIVE.** Every deliverable the design requires for the
-  task is a ROW of the table in its `## §2`; the columns are the STAGES a deliverable moves through, named in the
+- **A GOAL CARRIES THE NEXT PLANNED RELEASE VERSION, WHOLE.** A project's design stages its development as planned
+  release versions, its steps rolling up into them; a goal carries every step of the next planned version all the way
+  up to that version's release, and the version ships once, whole — never in parts, and never broken down further than
+  a version. A goal is as large as the work allows: everything the design states for that version is being built
+  unless the design marks it **HELD**, with the reason it waits, so a goal never shrinks to one part while the rest of
+  its version is designed and unheld. A design that plans no versions is given them first, in the design, before the
+  goal is written. The session that builds the version judges it complete against the design; a reviewer's verdict is
+  a finding the session fixes, never the judgment that the version is done. A row only *USER* can move (a ruling, an
+  approval) is still a row, moved through NEEDS-ASKING.
+- **THE GOAL FILE HOLDS THE TABLE AND ITS CONDITIONS, EXHAUSTIVE.** Every deliverable the design states for the next planned version is a
+  ROW of the table in its `## §2`; the columns are the STAGES a deliverable moves through, named in the
   domain's own nouns and each defined by what its proof shows (a slice of the one sequence, rule `28b`); a cell is
   blank (open), `—` (the row has no such stage) or `● <its proof file>`. The CONDITIONS beneath the table are about
   the table and what it reflects: the table complete and never reworded, every `●` showing what its stage requires,
@@ -62,15 +71,15 @@ description: Write a /goal for a long autonomous run. Use when *USER* says "set 
 
 0. `gh pr list --state open` on the repo — land your own open PRs on this work first.
 1. Read THIS file from disk — a copy loaded earlier in the session may be stale.
-2. `{{SPEC}}` — find the DESIGN.md section(s) the run builds. A fact the run needs that is not there goes
+2. `{{SPEC}}` — the next planned release version: the sections of the project's `DESIGN.md`, and of every child design its READ ORDER names, that state what that version holds; a design that plans no versions gets them first. A fact the run needs that is not there goes
    INTO the DESIGN.md first, same turn — never into the goal.
 3. `{{STATE}}` — find the `_states.md` row(s) the run moves. Write nothing into that file for the goal: no
    pointer at the goal, no note.
 4. **THE TABLE, EXHAUSTIVE** — name the STAGES the task's deliverables move through, in the domain's nouns, each
-   defined by what its proof shows. Then walk the SPEC section by section and write a ROW for EVERY deliverable it
-   requires of this task: `| R<n> | <the deliverable, and what each of its cells reflects> | <a cell per stage> |`.
+   defined by what its proof shows. Then walk the SPEC section by section, and every board of the project row by row, and write a ROW for EVERY
+   deliverable the version holds — everything it states that the design does not mark HELD: `| R<n> | <the deliverable, and what each of its cells reflects> | <a cell per stage> |`.
    Each row names the file or command output that proves each of its stages, never an assertion · references the
-   design's own markers ("nothing in §N is ASPIRATIONAL") · makes every new law's BUILT a test shown FAILING without
+   design's own steps and the board rows it moves, never a mark in the design · makes every new law's BUILT a test shown FAILING without
    it · names a ROLE, not a path, wherever the run or a parallel session might move the thing · names the board row it
    moves and that row's target phase. Set `—` only where the row truly has no such stage, and check that every stage
    left open can be met by an action at the runner's seat.
@@ -189,7 +198,8 @@ sits beside the prompt gets pasted with it. One line after the block names the g
 
 - a condition in the prompt — the prompt names the goal file and its table, and lists nothing
 - a deliverable written as a prose condition instead of a row of the table
-- a table scoped to what is convenient — its rows are every deliverable the SPEC requires for the task
+- a table scoped to what is convenient — its rows are every deliverable of the next planned version not marked HELD
+- a goal smaller than a planned version, or a version shipped in parts; a reviewer's verdict taken as the judgment that the version is done
 - a row, a stage, a `—` or a condition dropped or reworded once the goal is on the default branch — the table only
   grows; a goal *USER* narrows is replaced by a new goal file, never edited down, and so is a goal found to hold a
   cell or a condition no run can meet after it reached the default branch: the new file carries every old row's and

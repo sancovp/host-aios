@@ -13,7 +13,7 @@ skill; this rule is how that form gets made, shipped and proven.
 |---|---|
 | FIRST: the repo's open PRs — land your own on this work (finish, hand off, see it MERGED by the CI/CD agent, or by your queue by hand while its runner starts no job) before new work | `gh pr list --state open` |
 | the model and its checker, from disk | the `setup-goal` skill's `SKILL.md` whole + `goal_check.py` beside it, at the seat a live session loads them from (the skill's base directory, which Claude Code names when it loads the skill) · the template's copies (`HOST_AIOS/skills/setup-goal/`) too; a change lands in the template's, and reaches the live one in a new release where [[user_info]] binds THE AIOS RELEASES (a release assembled from its sources takes it from the template), else in both |
-| the spec the run builds | the owning `DESIGN.md` §§, whole — every deliverable in them becomes a row of the table |
+| the spec the run builds | the next planned release version — the sections of the project's `DESIGN.md`, and of every child design its READ ORDER names, that state what it holds (a design that plans no versions gets them first); every step the design states for it — a part the design places in a later version (HELD, with the reason it waits) excepted — and every board row of it short of its last state becomes a row of the table |
 | the state it moves | the owning `_states.md`, whole · the top-level states doc's row + the monorepo board's row (found by name) |
 | the dev flows it follows | every owning `22-seq-<feature>.md` the work touches |
 | the architecture map | the owning `21-architecture-diagrams.md` — where a new dev flow the run makes will be placed |
@@ -32,7 +32,7 @@ skill; this rule is how that form gets made, shipped and proven.
 2. Name by ROLE anything the run or a parallel session can move (the board, the scratchpad rule, a gate); a
    path only for what cannot move.
 3. Write §2 as the skill's model has it: THE STAGES the task's deliverables move through, each defined by what its
-   proof shows; THE TABLE, with a ROW for EVERY deliverable the spec requires of the task — exhaustive, walked section
+   proof shows; THE TABLE, with a ROW for EVERY deliverable the next planned version holds and the design does not mark HELD — exhaustive, walked section
    by section, each row saying what each of its cells reflects, a `—` only where the row has no such stage; and the
    six CONDITIONS about the table, each proven by a file the run will record with its checksum. A row is never scoped
    to what is convenient, and once merged no row, stage, `—` or condition is dropped or reworded; the table only grows. A question for *USER* is
@@ -99,6 +99,6 @@ it reached the default branch is replaced the same way, every condition's intent
 
 NOT:[hand *USER* a merge, a rebase, any git step or a word about a stopped queue · send the goal file through a worktree or a pull request (it is work) · merge a merge-queue repository's rule PR yourself while its CI runs · hand over a goal that is not on
 the default branch · list a condition in the prompt · write a deliverable as a prose condition instead of a row ·
-scope the table to less than the spec requires · drop or reword a row, a stage, a `—` or a condition once merged · name a movable thing by its path · put a note, a date or a goal pointer in any state file ·
+scope the table to less than the next planned version holds · write a goal smaller than a planned version, or ship a version in parts · take a reviewer's verdict as the judgment that the version is done · drop or reword a row, a stage, a `—` or a condition once merged · name a movable thing by its path · put a note, a date or a goal pointer in any state file ·
 write a READ line that defers to a hook or to what the injected rules order · put a quote, a date or a history
 note in the goal]

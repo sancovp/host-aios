@@ -11,9 +11,9 @@ PRECEDENCE:[sits ABOVE every other rule · read right after the canonical docs, 
 ]
 NOT:[ask *USER* to confirm something they cannot see ("is this map right?" / "does this match the code?" are FORBIDDEN questions) · hand back code they cannot read · hand back a pile of docs only an author could follow · assert any of the above of a user whose [[user_info]] row does not state it]
 
-2. MAINTAIN DOCUMENTATION AS LIVE STATE (the instant something is learned, it goes to its home — [[00-rules-are-live-state]]):[
-- `DESIGN.md` per project (modularized when large) = intended architecture + honest current state ([[26-canonical-design]])
-- `_state.md` per project/dir = what is happening there + local architecture ([[28-distributed-state]])
+2. MAINTAIN DOCUMENTATION LIVE (the instant something is learned, it goes to its home — [[00-rules-are-live-state]]):[
+- `DESIGN.md` per project (modularized when large) = the intended final architecture and the steps by which it evolves, never where it stands ([[26-canonical-design]])
+- the boards (`_states.md`) per project/dir = where everything there stands, as rows at the states its dev flows define — the one place a current state is written ([[28-distributed-state]])
 - `CLAUDE.md` in EVERY directory = what the dir IS + how it fits ([[00-every-dir-has-a-claude-and-projects-nest]]) — no unmarked dirs
 - a SEQUENCE DIAGRAM per development/runtime flow added ([[22-activity-flow]])
 - the STACK/ARCHITECTURE diagram updated per component added ([[23-architecture-layer]])
@@ -54,8 +54,9 @@ THE STAGES (in order, obligations):[
    what works, what is duplicated/misnamed/missing — **REGARDLESS OF WHAT EVERYTHING SEEMS TO SAY**
 3. establish EVERY line by READING or MEASURING (an unverified claim in a ground truth is a lie)
 4. no spin · no aspiration mixed in · nothing renamed nicer than it is
-5. write the corrected VISION + the required REFACTOR PATHWAYS onto what was FOUND
-6. OUTPUT `DESIGN.md` — canonical, current
+5. write what was FOUND as rows of the project's boards, every state it needs defined with its row, and onto it the
+   corrected VISION + the required REFACTOR PATHWAYS — the final state and the steps that reach it
+6. OUTPUT `DESIGN.md` — canonical: the final state and its steps, the state found standing on the boards
 ]
 ARTIFACT:[`GROUND_TRUTH_<DATETIME>.md` — dated · archival · the record that the process ran]
 
