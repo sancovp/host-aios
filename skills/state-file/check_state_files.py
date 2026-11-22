@@ -56,7 +56,7 @@ MAX_CELL_CHARS = 300           # a cell is a STATE or a POINTER, never a narrati
 MAX_TRAILING_CHARS = 400       # a short residue/pointer footer, nothing more
 
 _ROW = re.compile(r"^\s*\|")
-_SEPARATOR = re.compile(r"^\s*\|(\s*:?-{3,}:?\s*\|)+\s*$")
+_SEPARATOR = re.compile(r"^\s*\|(\s*:?-+:?\s*\|)+\s*$")
 _SECTION = re.compile(r"^#{2,3} ")
 _NOTE_HEADERS = {"note", "notes", "comment", "comments", "remarks"}
 _PHASE_HOLDER_HEADERS = {"phase", "phases", "state", "status", "stage"}
@@ -73,6 +73,27 @@ def _heading_owns_table(lines: list[str], idx: int) -> bool:
         if _ROW.match(l):
             return True
     return False
+
+
+def _cell_count(line: str) -> int:
+    """How many cells a table row holds, as Markdown splits it: a `|` inside a backtick code span, or escaped as `\\|`,
+    is text and splits nothing; the leading and trailing pipes bound the row."""
+    count, code, i, s = 0, False, 0, line.strip()
+    while i < len(s):
+        c = s[i]
+        if c == "\\" and i + 1 < len(s):
+            i += 2
+            continue
+        if c == "`":
+            code = not code
+        elif c == "|" and not code:
+            count += 1
+        i += 1
+    if not s.startswith("|"):
+        count += 1
+    if not s.endswith("|") or s.endswith("\\|"):
+        count += 1
+    return count - 1
 
 
 def _has_stack(proj: str) -> bool:
@@ -141,6 +162,18 @@ def check(path: str) -> list[dict]:
                         "detail": f"the table at line {i + 1} keeps the state as a WORD in one "
                                   f"column — the COLUMNS are the states, one per state, and every "
                                   f"state a row has reached is marked `●` (rule 28)"})
+        # EVERY ROW HAS ITS HEADER'S CELLS: a row with fewer cells reads its marks under the wrong states, and one
+        # with more holds marks under no state at all — either way the board says something false about that row.
+        width = _cell_count(lines[i])
+        j = i + 2
+        while j < len(lines) and _ROW.match(lines[j]):
+            n = _cell_count(lines[j])
+            if n != width:
+                out.append({"kind": "cell_count",
+                            "detail": f"line {j + 1} has {n} cells where its table's header (line {i + 1}) has "
+                                      f"{width} — every row carries one cell per column, so each mark sits under "
+                                      f"the state it reached (rule 28)"})
+            j += 1
 
     worst = 0
     worst_line = 0
