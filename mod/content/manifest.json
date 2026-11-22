@@ -1,5 +1,5 @@
 {
-  "version": "0.6.15",
+  "version": "0.7.1",
   "rules": [
     "00-canonical-doc-paths.md",
     "00-docsys.md",
@@ -50,6 +50,7 @@
     "subagent-worktree-isolation.md",
     "talk-to-yourself-in-the-imperative.md",
     "the-host-aios-scratchpad.md",
+    "the-next-step-does-or-unblocks-the-work.md",
     "the-precious-store.md",
     "the-subagent-model.md",
     "tmp-path-has-many-interpreters.md",
