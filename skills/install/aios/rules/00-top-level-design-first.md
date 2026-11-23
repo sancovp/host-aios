@@ -3,10 +3,11 @@
 FIRST ACTION — at every conversation start · resume · compaction summary · handed summary, BEFORE touching /
 editing / running / committing / answering — and after a compaction, a resume or a clear WORK IS REFUSED UNTIL THE
 READ IS DONE BY THE SESSION ITSELF (THE GATE, below):[
-0. **UNDER A GOAL** → the goal's READ LIST, whole, at start and after every compaction; nothing beyond it.
+0. **UNDER A GOAL** → the goal's READ LIST, whole, at start and after every compaction, with the design read (THE
+   GATE); nothing else beyond it.
 0b. **NAME THE MODE.** A WORK session — asked to make, produce or do something with a project — writes its mode line,
-   reads its WORK board and calls the project's starting skillchain, which its `CLAUDE.md` names, and reads no design
-   first; making a new project — anything that will live in a folder of its own, a tool or a program among them — is this AIOS's own work, started by its `aios-artifacts` skillchain before that folder's first file, in WORK mode whatever it is made of. A DEVELOPMENT
+   reads the project's `DESIGN.md` and boards whole (THE GATE) and calls the project's starting skillchain, which its
+   `CLAUDE.md` names; making a new project — anything that will live in a folder of its own, a tool or a program among them — is this AIOS's own work, started by its `aios-artifacts` skillchain before that folder's first file, in WORK mode whatever it is made of. A DEVELOPMENT
    session — asked to fix, add, change or improve a project that exists — opens the `how-to-develop-a-project` skill,
    whose design read is steps 1–4 below.
 1. **FIND THE TOP.** THE MASTER MAP ([[00-canonical-doc-paths]]) loads into every session as a user rule: one line and
@@ -17,8 +18,8 @@ READ IS DONE BY THE SESSION ITSELF (THE GATE, below):[
    project's path in that document. Named ⇒ wired, whatever its code imports — a part of the architecture talks
    to the rest over HTTP, over a key, over a graph, or over nothing but a shared design, and each of those is
    wiring. Not named ⇒ not wired (a scratch project, a dossier, a fixture).
-3. **NOT WIRED** → read the project's own canon and nothing above it: its `CLAUDE.md` · its `DESIGN.md`
-   through its READ ORDER and its TOC rule, the sections the work touches · its board · its scratchpad · the files the
+3. **NOT WIRED** → read the project's own canon and nothing above it: its `CLAUDE.md` · its `DESIGN.md` whole,
+   its READ ORDER and its TOC rule naming what else the work follows · its boards · its scratchpad · the files the
    work names. No top-level design and no top-level states doc is opened.
 4. **WIRED** → the project's own canon as in 3, PLUS **ITS TOP'S TOP-LEVEL DESIGN, TOP TO BOTTOM**: its opening is
    that top's READ ORDER, and it is the EXPLAINED TABLE OF CONTENTS of a TREE of documents holding everything that top
@@ -29,10 +30,15 @@ READ IS DONE BY THE SESSION ITSELF (THE GATE, below):[
 ]
 
 THE GATE:[
+- THE DESIGN READ COMES FIRST: before anything is done in a project — every conversation, and after every compaction,
+  resume or clear, whatever the change, one line included — its `DESIGN.md` and every board in its `.claude/rules/`
+  are read whole with the Read tool, a long file in consecutive chunks, by the agent that acts, a helper agent for
+  itself; a project with no `DESIGN.md` is first given one by the ground-truth process, its HALO SEEM map read during it
+  where it has one (`aios-artifacts` for a new project). The package's design guard says so once in every window, a
+  string at its start, and blocks nothing: a block comes only when a string proves too loose, with its own protocol
 - a summary is a start, never something to work from: after a compaction, a resume or a clear, and in any session
   whose record begins with a summary, the session OWES A REHYDRATION: the first thing it does is read — before running
-  a command, editing or writing a file, dispatching an agent or starting a session. Nothing enforces it: it is the
-  session's own act
+  a command, editing or writing a file, dispatching an agent or starting a session
 - THE LIST — every file the session itself read in the stretch the summary replaced — by a read, by a search that
   returned its lines, by a command that printed it — less every file it edited or wrote there, which is its own output;
   deduplicated, most recently read first. From it the session SELECTS the files the work rests on and reads them again,
@@ -74,13 +80,15 @@ installation has bound no top-level design, wired work reads what the tree actua
 NOT:[work from a summary · work in a project whose starting skillchain is not loaded · read a top-level design for a project not wired into it · read another top's design · recurse every link · ask
 *USER* whether to read · substitute grep for reading a document you need]
 
-DISCIPLINE:[a development session: find the top → wiring check → scoped canon → act; a work session: its WORK board →
+DISCIPLINE:[a development session: find the top → wiring check → scoped canon → act; a work session: the design read →
 its starting skillchain · ONE thing finished before the next starts · the doc
 tree is kept current — rewrite the scope's `DESIGN.md` whenever its ruling changes and its board whenever a state moves; a top-level design +
 its top-level states doc move only when a canonical change reaches them]
 
 TRIGGER:[a conversation start · resume · compaction/summary event (⇒ name the mode; a development session finds the
-top, checks the wiring, then reads its scoped canon; a work session calls its starting skillchain) · about to open a top-level design (⇒ is it the top that holds the work, and is the work wired into it? then
+top, checks the wiring, then reads its scoped canon; a work session reads the design and boards, then calls its
+starting skillchain) · about to act in a project whose `DESIGN.md` and boards are not read whole in this window (⇒
+read them first; none ⇒ the ground-truth process) · about to open a top-level design (⇒ is it the top that holds the work, and is the work wired into it? then
 which sections?) · the rehydration list given after a compaction (⇒ select from it the files the work rests on and read them, before
 anything else) · acting without the scoped canon read THIS window (⇒ stop and read it) · an interruption during
 the read (⇒ finish it first)]

@@ -22,8 +22,10 @@ from here. Under a `/goal`, the goal's read list is step 2's read and the goal f
    the request in one line>`. The scratchpad loads in every window and after every compaction, so you read it again
    without being asked.
 2. **THE DESIGN READ.** Find the top and check the wiring (rule `00-top-level-design-first`), then read the project's
-   canon: its `CLAUDE.md`; its `DESIGN.md` through its READ ORDER (the `design-toc` skill); its DEV board (the
-   `state-file` skill); its scratchpad; and, for a wired project, its top's top-level design (the `top-level-design`
+   canon: its `CLAUDE.md`; its `DESIGN.md` whole, its READ ORDER (the `design-toc` skill) naming what else to follow;
+   every board in its `.claude/rules/` whole (the `state-file` skill); its scratchpad — a project with no `DESIGN.md`
+   first given one by the ground-truth process (the `ground-truth` skill), its HALO SEEM map read during it where it has
+   one; and, for a wired project, its top's top-level design (the `top-level-design`
    skill).
 3. **CONFIGURABLE YET?** Name what the project ends as and whether it hardcodes its user, its agent or its machine
    (rule `00-the-work-loop`, step 0). Not yet ⇒ making it configurable is the work, first.
