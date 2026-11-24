@@ -41,7 +41,10 @@ of the identity whose work it tracks, never on the other.
 ## EVERY STATE IS A ROW — and is written nowhere else (rule 28)
 
 Where anything stands — built or not, how far, measured, missing, in pieces — is a row of a board, and it is written
-nowhere else: never in a design, a `CLAUDE.md`, a rule, a skill, a note or a scratchpad. A position no dev flow yet
+nowhere else: never in a design, a `CLAUDE.md`, a rule, a skill, a note or a scratchpad, and never in code — a comment,
+a docstring or a message string says only what the code beside it does and why it is shaped so, never whether something
+else is built, works, is reached, is pending, is disabled or was changed. A status statement found in code is removed
+the turn it is found, and its claim is put to a run before it is repeated. A position no dev flow yet
 defines is defined in the same change as its row: the dev flow (a `22-seq-<feature>.md`, or the how-to skill that
 states its states) names the state, the table gets its column, then the row is written. A design found holding state
 keeps it in its marked section only until it is moved here, as rows.
