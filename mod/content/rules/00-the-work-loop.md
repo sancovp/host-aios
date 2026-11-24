@@ -63,8 +63,9 @@ top-level design → the DESIGN.md that owns them → that subsystem's per-featu
 
 - **A GOAL CARRIES THE NEXT PLANNED RELEASE VERSION, WHOLE.** The design stages the work as planned release versions;
   a goal's table holds every deliverable of the next one not marked HELD, and the version ships once, whole, judged
-  complete by the session that builds it. A version that leaves a part out still closes every loop that crossed that
-  part, by a bridge that is one of its deliverables ([[a-version-closes-every-loop]]).
+  complete by the session that builds it. Where something the version tests requires a part that must stay
+  off, a bridge stands in for that part's one step and is one of the version's deliverables; a part merely off for now
+  gets none ([[a-version-closes-every-loop]]).
 - **The goal names the reads** — the most specific, only-the-required version of the context: the design's READ
   ORDER, its table of contents, the boards and the dev flows at start; each row's own sections and files as that row's
   stage is reached. A goal may scope away the top-level design and the top-level states doc.
