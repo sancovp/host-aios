@@ -1,5 +1,5 @@
 {
-  "version": "0.7.3",
+  "version": "0.7.4",
   "rules": [
     "00-canonical-doc-paths.md",
     "00-docsys.md",
@@ -28,6 +28,7 @@
     "28-distributed-state.md",
     "28b-every-workflow-is-a-slice-of-one-sequence.md",
     "29-state-indexes-design.md",
+    "a-version-closes-every-loop.md",
     "call-the-gan-when-you-think-youre-done.md",
     "canonical-source-dirs.md",
     "close-the-failure-class.md",

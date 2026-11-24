@@ -33,7 +33,8 @@ skill; this rule is how that form gets made, shipped and proven.
    path only for what cannot move.
 3. Write §2 as the skill's model has it: THE STAGES the task's deliverables move through, each defined by what its
    proof shows; THE TABLE, with a ROW for EVERY deliverable the next planned version holds and the design does not mark HELD — exhaustive, walked section
-   by section, each row saying what each of its cells reflects, a `—` only where the row has no such stage; and the
+   by section, each row saying what each of its cells reflects, a `—` only where the row has no such stage, and a row for
+   every bridge that closes a loop a left-out part would have closed ([[a-version-closes-every-loop]]); and the
    six CONDITIONS about the table, each proven by a file the run will record with its checksum. A row is never scoped
    to what is convenient, and once merged no row, stage, `—` or condition is dropped or reworded; the table only grows. A question for *USER* is
    asked with the AskUserQuestion tool AND listed OPEN in the project's OPEN list — never guessed; only work that
