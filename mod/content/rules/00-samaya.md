@@ -39,48 +39,85 @@ DO:[
 [if an action's context can be represented as text, its function as code, and its output projected back into the object needed — it is end-to-end the agent's job · deliver the whole loop (context → function → output-in-the-real-object), not advice, not a partial scaffold]
 NOT:[hand back the user's own work on a task that passes the test]
 
-## V. GROUND_TRUTH — A PROCESS. It is RUN; it OUTPUTS a corrected DESIGN SYSTEM, written through the `design-md` skill, and LEAVES an artifact.
+## V. GROUND_TRUTH — A PROCESS. It is RUN; it gathers REALITY from the code and the fully resolved VISION from every document, factors the two into one design system, and leaves nothing else in the project.
 
 ⛔ **NOT a document class · NOT a proto-DESIGN.md · NOT a tier · nothing "morphs."** A PROCEDURE
 flow ([[28b-every-workflow-is-a-slice-of-one-sequence]]): every stage runs every time, and nothing
 ever sits in one of its stages.
 
-PRECONDITION:[a project ALREADY EXISTS **and** its `DESIGN.md` is wrong · mangled · or absent]
+PRECONDITION:[a project ALREADY EXISTS **and** its `DESIGN.md` is wrong · mangled · absent · or other written files
+beside it still say what the project is, does or is meant to be]
 ⇒ greenfield takes NO ground truth — write `DESIGN.md` from stated intent.
 
-THE STAGES (in order, obligations):[
-1. DEPRECATE the broken `DESIGN.md` — it stops being canonical the moment the process starts
-2. GO THROUGH EVERYTHING, AT THIS DATETIME — every repo/dir/image/container/store: what it does,
-   what works, what is duplicated/misnamed/missing — **REGARDLESS OF WHAT EVERYTHING SEEMS TO SAY**
-3. establish EVERY line by READING or MEASURING (an unverified claim in a ground truth is a lie)
-4. no spin · no aspiration mixed in · nothing renamed nicer than it is
-5. write what was FOUND as rows of the project's boards, every state it needs defined with its row, and onto it the
-   corrected VISION + the required REFACTOR PATHWAYS — the final state and the steps that reach it
-6. OUTPUT THE DESIGN SYSTEM, THROUGH THE `design-md` SKILL — canonical: the top page `DESIGN.md`, the final state and
-   its steps, and the detail pages in `design/` that cover every file of the code, why each exists and what it connects
-   to; the state found stands on the boards · a run that ends on one page of conclusions has not output it
+THE TWO THINGS GATHERED, NEVER CONFUSED:[
+- REALITY — what the code does, gathered from the code alone: every line of every module read · the code is the
+  reality and never the truth of what is meant: nothing about what the project should be is concluded from it
+- THE VISION — the entire, fully resolved idea and design, gathered from EVERY document anywhere that ever spoke about
+  the project, inside its folder and outside it: every statement, resolved in date order against every other, every
+  supersession accounted for
 ]
-THE READERS:[OPEN THE `ground-truth` SKILL FIRST — the Skill tool, by its name — and run the process through it · where
-the code exceeds one window and readers are dispatched, each is briefed by that skill's READER'S BRIEF: for EVERY file
-of its chunk one row — why the file exists, what it connects to, each connection with its file and line — written to a
-findings file, so the pages of stage 6 are assembled from the readers' files and the code is read once]
-DONE ONLY WHEN:[the coverage gate (the `design-md` skill's `check_design_covers_code.py`) names no code file · the
-read-order check and the reachability check pass · the boards carry what was found · the dated record exists · each
-check run bare and read]
-ARTIFACT:[`GROUND_TRUTH_<DATETIME>.md` — dated · archival · the record that the process ran; every reader's findings
-file kept beside it]
+WHAT IS MADE FROM THEM:[
+- THE FACTORING — the whole vision factored into designs about the code, one design file per group of modules that
+  makes sense to group
+- THE TRUE STATUSES — for every part of the design, what the code really does against it, as rows of the board
+- THE STAGES — every stage of every transformation from the code as it is to the highest version the vision holds;
+  each stage is itself a design, written down completely, everything in it solved end to end
+- THE ROLL-UP — ONE top-level `DESIGN.md` which directs all cognition about the project
+]
+DONE ONLY WHEN:[every line of code of every module has been read · every document anywhere that spoke about the
+project has been read whole and every statement of it placed · every line of code is mapped against every line of
+design, prose and ideas · each group of modules has its design file · every supersession is accounted for · the final
+design is figured out and all information is resolved · every stage of every transformation is written as a design,
+solved end to end through the highest version · every true status is a row of the board · it is rolled up into ONE
+`DESIGN.md` · nothing is left in the project but design documents, code and the AIOS's own files: every other written
+file that says anything about the project is absorbed, statement by statement, and deleted · the wholeness gate (the
+`design-md` skill's `check_design_is_whole.py`), the coverage gate, the read-order check, the reachability check and
+the state-file gate pass, each run bare and read · a design is never a summary]
 
-⛔ CANONICITY — EXACTLY ONE CANONICAL DOC, ALWAYS:[
-- `DESIGN.md` broken ⇒ deprecated; the ground truth carries trust ONLY until stage 6 outputs
-- `DESIGN.md` current ⇒ ground truths are ARCHIVE, never consulted as canon
-- a live ground truth beside a live `DESIGN.md` means **the process did not finish**
+THE STAGES OF THE PROCESS (in order, obligations):[
+1. DEPRECATE the broken `DESIGN.md` — it stops being canonical the moment the process starts, and is one of the
+   documents the process absorbs
+2. SIZE AND CUT, by program — the code measured and cut into groups of modules that make sense to group, each share
+   small enough for one reader to hold whole; every other written file of the project listed with its date; every
+   document outside the project that speaks about it located and listed with its date
+3. GATHER REALITY — every line of every file read and written into its group's page range by range: what the range
+   does, what calls it, what it calls; a file's ranges run from 1 to its last line with no gap
+4. GATHER THE VISION — every listed document read whole, oldest first; EVERY statement placed under what it is about,
+   not only the ones that conflict; where a later statement replaces an earlier one the vision gets what stands and
+   `CHANGELOG.md` gets what it replaced; one of the project's own documents is deleted only when every statement of it
+   is placed; a document outside the project is read and left where it is
+5. FACTOR — per group, the vision factored onto the code: the group's design in its highest version, and the true
+   status of every part of it, each a row of the board
+6. WRITE THE STAGES — every stage of every transformation from the code as it is to the highest version, each a
+   design written completely and solved end to end
+7. ROLL UP — ONE `DESIGN.md` from the group files: what the project is, the final design, the stages across groups,
+   and for every kind of work which group file to read
+8. PROVE — by readers that built nothing: per code file, every line range is in its group's file; per deleted
+   document, every statement is placed; the stage that missed is run again until both lists are empty; then the gates
+]
+WHO DOES IT:[OPEN THE `ground-truth` SKILL FIRST — the Skill tool, by its name — and run the process through it · where
+the code and the documents fit one window, the session runs every stage itself · where they do not, the session plans,
+cuts, briefs and sends agents, and the agents read and write: the session reads none of the code and none of the
+documents itself, records every agent on the project's board before it is sent, rewrites the project's note of what to
+do next in the same commit as every step that moves, and checks what returns by program and by fresh agents]
+
+⛔ NO OLD DOCUMENT IS KEPT, AND EXACTLY ONE DESIGN IS CANONICAL:[
+- no document about the project stays outside its design — not as archive, not as a record, not as a pointer, not as
+  a reference; git holds every version
+- the process leaves no dated record file and no findings folder: that it ran is the `CHANGELOG.md` entries and the
+  board's rows
+- the new `DESIGN.md`, with its group files under it, is the one canonical document
 ]
 NOT:[
 - treat it as a document class, a standing "current state" tier, or a thing that becomes DESIGN.md
-- end it on one page and the readers' raw findings, with no page covering the files — the code then has to be read again to answer anything
-- dispatch a reader without the row-per-file brief
+- take the code for the truth of what is meant, or write a design from the code alone
+- write the design from a reduction — a summary, a map of contradictions, a list of topics, a reader's findings: every
+  statement is placed
+- end it while a written file about the project stands outside the design, a line of code is unaccounted for, or a
+  stage of the way to the highest version is only named
+- call it done because its gates pass while an old document is still needed to answer a question about the project
+- write findings, a map or a report of what the documents say in place of the design
 - run it on a greenfield project
-- write the vision before the finding (DWA: fixing a system never honestly inventoried)
 - make `_state.md` "the vector between the two docs" — what IS lives in the board's `●` marks
 - leave two canonical docs
 ]

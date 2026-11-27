@@ -31,7 +31,7 @@ code again each time the question comes back is the failure this skill exists to
    work which section, which page, which child design and which procedure to read, then the lines naming the folders
    the checks leave alone (the `design-toc` skill has the form).
 3. **THE FINAL STATE AND ITS STEPS, NEVER THE STATE.** Prose, one section per FEATURE. Each section states the intended
-   final state of its feature and, where the project reaches it through steps or versions, those steps in order. Whether
+   final state of its feature and, where the project reaches it through steps or versions, those steps in order, each one a design of its own: written completely, everything in it solved end to end, through the highest version the vision holds. Whether
    a part is built, how far it has come, what was measured, what is missing — every current state — is a row of the
    project's boards (the `state-file` skill) and is written nowhere in a design.
 4. **IT COVERS EVERY FILE OF THE CODE.** Every file that exists in the project's code has its line in the design: WHY
@@ -46,9 +46,14 @@ code again each time the question comes back is the failure this skill exists to
 6. **A FILE ADDED TO THE CODE IS ADDED TO THE DESIGN IN THE SAME CHANGE.** So is a file renamed or removed, and so is
    any change to what a file is for or what it connects to: the design and the code move in one commit, and what
    changed, the reading it replaced and why are appended to the `CHANGELOG.md` beside the design.
-7. **NO OTHER DOCUMENT COMPETES WITH IT.** A stray design or spec document is rolled in: its content goes into the
-   section that owns it, or becomes a page of `design/` when it is long, and its old place is left as a pointer.
-   Nothing is deleted; deleting a document is the owner's call, file by file.
+7. **NOTHING ELSE IS KEPT BESIDE IT.** A written file that says what the project is, does or is meant to be, and is
+   no page of the design, is absorbed: every statement of it is placed in the page that owns its topic, what a
+   statement replaced is appended to `CHANGELOG.md`, and the file is deleted. It is never kept as archive, record,
+   pointer or reference.
+8. **THE CODE IS THE REALITY; THE DOCUMENTS HOLD THE VISION.** What the project is meant to be is gathered from every
+   document that ever spoke about it, resolved in date order, and factored into the designs about the code. What the
+   code does is gathered from the code. A design is never written from the code alone, and where the two differ the
+   difference is a row of the board.
 
 ## HOW TO WRITE ONE — in order
 
@@ -107,6 +112,37 @@ PROGRAM FOLDERS:` is about documents and exempts no code.
 ⛔ **RUN IT BARE AND READ WHAT IT SAYS.** It tells that a file is named. It cannot tell whether the line beside the
 name says why the file exists and what it connects to: that is judged by reading the page. A design that passes the
 gate with a list of bare names has not covered anything.
+
+## THE GROUP PAGES — every line of the code, and the vision factored onto it
+
+Where the ground-truth process writes the design (the `ground-truth` skill), the code is cut into groups of modules
+that make sense to group, and each group has ONE page in `design/`. A group page holds three things, in this order:
+
+1. **THE DESIGN of the group** — the whole vision for it, gathered from every document that ever spoke about it and
+   resolved: what the group is when it is finished, and every stage on the way there, each stage a design of its own,
+   written completely and solved end to end.
+2. **THE CODE, line by line** — the reality. Per file, a heading `## <the file's path in backticks> — N lines`, a
+   paragraph of why the file exists and what it connects to, then a table whose first column is a line range `a-b`:
+   what the range is, what it does, what calls it, what it calls. The ranges of a file run from 1 to N with no gap.
+3. Nothing about where anything stands: for every part of the design, whether the code does it, differs from it or
+   lacks it is a row of the project's board.
+
+The code is the reality and never the truth of what is meant: a group's design is never written from its code alone.
+
+## THE WHOLENESS GATE — `check_design_is_whole.py`, beside this file
+
+```
+python3 "${CLAUDE_SKILL_DIR}/check_design_is_whole.py" <project folder, or its DESIGN.md>
+```
+
+It fails while the design is not the whole of the project's writing and code. It lists every code file whose lines
+no page accounts for from 1 to its last line with no gap, and every written file that is not the design, the code or
+the AIOS's own files. A written file is allowed only as: `DESIGN.md` and the pages of `design/`; a `CLAUDE.md`;
+anything under a `.claude/` folder; the root `CHANGELOG.md`; a `README` beside a build file; a licence or a
+requirements file; a file under a `workspace/` folder the READ ORDER names on a line `OUTPUTS OF USE:`; and the files
+of a child project. A code file the owner ruled is not to be read is named on a READ ORDER line `NOT READ BY RULING:`.
+Run it bare and read what it prints. It cannot tell whether a row says what its lines do: that is judged by a reader
+who built nothing.
 
 ## WHEN A DESIGN IS FOUND HOLDING STATE
 

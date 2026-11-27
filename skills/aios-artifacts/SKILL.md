@@ -18,7 +18,7 @@ Reason explicitly, step by step:
 State the conclusion, then carry it forward as the input to the next step.
 
 ## Step 2 — invoke skill `ground-truth`
-*WHEN a project that exists has a DESIGN.md that is wrong, mangled or absent, run this process on it before any other work there — deprecate the design, go through everything that exists as it is at this datetime, establish every line by reading or measuring, then output the design system through the `design-md` skill, its top page and the pages that cover every file of the code, with the boards carrying what was found and a dated GROUND_TRUTH record left — never on a new project, never leaving two canonical documents.*
+*WHEN a project that exists has a DESIGN.md that is wrong, mangled or absent, or holds other written files that still say what it is, does or is meant to be, run this process on it before any other work there — gather the REALITY from every line of its code and the fully resolved VISION from every document anywhere that ever spoke about it, factor the two into one design system with every stage of every transformation written as a design, put every true status on the boards, and leave nothing in the project but design documents and code — never on a new project, never keeping an old document.*
 
 Invoke the **ground-truth** skill (no extra input)
 

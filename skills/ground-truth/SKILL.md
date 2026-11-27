@@ -1,124 +1,163 @@
 ---
 name: ground-truth
-description: WHEN a project that exists has a DESIGN.md that is wrong, mangled or absent, run this process on it before any other work there — deprecate the design, go through everything that exists as it is at this datetime, establish every line by reading or measuring, then output the design system through the `design-md` skill, its top page and the pages that cover every file of the code, with the boards carrying what was found and a dated GROUND_TRUTH record left — never on a new project, never leaving two canonical documents.
+description: WHEN a project that exists has a DESIGN.md that is wrong, mangled or absent, or holds other written files that still say what it is, does or is meant to be, run this process on it before any other work there — gather the REALITY from every line of its code and the fully resolved VISION from every document anywhere that ever spoke about it, factor the two into one design system with every stage of every transformation written as a design, put every true status on the boards, and leave nothing in the project but design documents and code — never on a new project, never keeping an old document.
 ---
 
-# ground-truth — the process that gives a project back a design it can be read from
+# ground-truth — the process that resolves everything a project's code and documents say into one design
 
-The law is the rule `00-samaya` §V. Ground truth is a PROCESS: it is run, it outputs a corrected design system, and it
-leaves a dated record. It is never a kind of document, never a standing "current state" page, and nothing in it turns
-into the design: the design is written, through the `design-md` skill, from what the process found.
+The law is the rule `00-samaya` §V. Ground truth is a PROCESS: it is run, and it ends with one design system that
+holds everything, written through the `design-md` skill. It is never a kind of document, and it leaves no record file
+and no findings folder behind it.
+
+## THE TWO THINGS IT GATHERS — never confuse them
+
+- **REALITY** is what the code does. It is gathered from the code alone, every line of every module. The code is the
+  reality and never the truth of what is meant: nothing about what the project should be is concluded from it.
+- **THE VISION** is the entire, fully resolved idea and design. It is gathered from EVERY document anywhere that ever
+  spoke about the project — inside its folder and outside it — every statement, resolved in date order against every
+  other, every supersession accounted for.
+
+From the two it makes: the whole vision FACTORED into designs about the code, one design file per group of modules
+that makes sense to group; the TRUE STATUS of every part, as rows of the board; every STAGE of every transformation
+from the code as it is to the highest version the vision holds, each stage a design of its own, written completely
+and solved end to end; and ONE top-level `DESIGN.md` that directs all thinking about the project.
 
 ## WHEN IT RUNS, AND WHEN IT NEVER DOES
 
-It runs when a project ALREADY EXISTS and its `DESIGN.md` is wrong, mangled or absent. A new project takes no ground
-truth: its design is written from the stated intent, by the `aios-artifacts` skillchain. Before starting, read the
-project's HALO SEEM map where it has one, and keep it open during the run: it says where the features' boundaries are.
+It runs when a project ALREADY EXISTS and its `DESIGN.md` is wrong, mangled or absent, or when written files beside
+the design still say what the project is, does or is meant to be. A new project takes no ground truth: its design is
+written from the stated intent, by the `aios-artifacts` skillchain. Where the project has a HALO SEEM map, the agents
+keep it open: it says where the features' boundaries are.
 
-## WHAT IT OUTPUTS — and the run is not done without every one of these
+## DONE ONLY WHEN — every one of these, and a design is never a summary
 
-1. **THE DESIGN SYSTEM, written through the `design-md` skill**: the top page `DESIGN.md`, and the detail pages in
-   `design/` that cover every file of the code — why each file exists and how it connects to everything else. One page
-   of conclusions is not the output. The test: a question about the project is answered from the design and its pages,
-   without reading the code again.
-2. **THE BOARDS carrying what was found**: every state the run established — what works, what is broken, what is
-   duplicated, misnamed, missing or in pieces — as rows of the project's boards (the `state-file` skill), each state
-   defined with its row where no dev flow defines it yet.
-3. **THE DATED RECORD**, `GROUND_TRUTH_<DATETIME>.md` at the project's root: archival, never canon. Beside it, the
-   folder `ground-truth-<DATETIME>/` holding every reader's findings file as it was returned.
-4. **THE CHECKS PASSING, each run bare and read**: the coverage gate (the `design-md` skill's
-   `check_design_covers_code.py`) — every code file named; the read-order check (the `design-toc` skill) — `CURRENT`;
-   the reachability check (the `top-level-design` skill) from the new `DESIGN.md` — nothing unreached; the state-file
-   gate on each board.
-5. **EXACTLY ONE CANONICAL DOCUMENT**: the new `DESIGN.md`. The old one is gone from that name, and the record is
-   archive.
+1. Every line of code of every module has been read, and is accounted for in its group's page, range by range.
+2. Every document anywhere that spoke about the project has been read whole, and every statement of it is placed.
+3. Every line of code is mapped against every line of design, prose and ideas.
+4. Each group of modules that makes sense to group has ONE design file.
+5. Every supersession is accounted for: the design holds what stands, `CHANGELOG.md` holds what it replaced.
+6. The final design is figured out and all information is resolved.
+7. Every stage of every transformation is written as a design, solved end to end, through the highest version.
+8. Every true status is a row of the board.
+9. It is rolled up into ONE `DESIGN.md`.
+10. Nothing is left in the project but design documents, code and the AIOS's own files. Every other written file that
+    says anything about the project is absorbed, statement by statement, and deleted. None is kept as archive,
+    record, pointer or reference.
+11. The gates pass, each run bare and read: the wholeness gate (the `design-md` skill's `check_design_is_whole.py`),
+    the coverage gate, the read-order check, the reachability check and the state-file gate on each board.
 
-## THE STAGES — in order, every one, every time
+The test that it is done: could every old document be deleted now, with no question about the project left that only
+an old document answers? If not, it is not done, whatever the gates print.
 
-1. **DEPRECATE.** The broken `DESIGN.md`, where there is one, stops being canonical the moment the process starts.
-   Move it aside under a name that says so (`DESIGN.deprecated-<DATETIME>.md`), so nothing reads it as the design
-   while the run is going. It is one of the things the run reads, as a claim to check, never as a source.
-2. **INVENTORY EVERYTHING, AT THIS DATETIME.** Measure before reading (the rule
-   `00-size-the-corpus-before-generating-into-it`): list every file git tracks, with its size, and among them every
-   code file — the files the coverage gate will hold the new design to; list what runs — every container, daemon,
-   store, port and scheduled job the project owns. Print the numbers and say whether the code fits one window. That
-   list is the run's checklist: every file on it ends the run with a line in the design.
-3. **ESTABLISH EVERY LINE BY READING OR MEASURING**, regardless of what any document, comment or name seems to say. A
-   file is read whole. What a thing does is established by running it or reading its code; whether a thing is stored
-   is established by asking the store through its own reader. A claim nobody read or measured does not go in.
-   - **The code fits one window** → the session reads all of it itself, writing each file's line as it reads.
-   - **It does not fit** → the session cuts the inventory into chunks that each fit one reader, and dispatches one
-     reader per chunk with THE READER'S BRIEF below. Every file is in exactly one chunk. The session then reads every
-     reader's findings file whole, and opens the cited lines itself for every statement the design's argument rests on:
-     a reader locates, the session concludes (the rule `00-explore-reads-everything`).
-4. **NO SPIN.** Nothing aspirational is mixed into what was found, and nothing is renamed nicer than it is.
-5. **WRITE WHAT WAS FOUND, THEN THE CORRECTED VISION ON TOP OF IT.** What was found goes to the boards as rows
-   (output 2). Then the vision: what the project is when it is finished, and the refactor pathways — the steps, in
-   order, that carry it there from what was found. The vision is written after the finding, never before it.
-6. **OUTPUT THE DESIGN SYSTEM THROUGH THE `design-md` SKILL.** Open that skill and write through it: the READ ORDER;
-   one section per feature stating the final state and its steps (the refactor pathways are those steps); then the
-   pages. The files pages are ASSEMBLED FROM THE READERS' FILES — each reader's rows of why a file exists and what it
-   connects to become the rows of a files page, checked and worded as design — so the code is read once, by the
-   readers, and never again to write the pages. Each reader's traces become the end-to-end pages. What a reader
-   measured or found broken goes to the boards, never into a page. Then run the checks of output 4, write the dated
-   record, and remove the deprecated design from the project's root into the record's folder.
+## WHO READS — the planner and the agents
 
-## THE READER'S BRIEF — put it in every reader's dispatch, whole
+Measure first (the rule `00-size-the-corpus-before-generating-into-it`). Where the code and every document together
+fit one window, the session runs every stage itself. Where they do not, the session is THE PLANNER: it measures, cuts,
+writes each brief, sends agents on the model the installation binds for them (the rule `the-subagent-model`), and
+checks what returns. The planner reads none of the code and none of the documents itself, and writes no findings, no
+map and no report of what they say. The agents read, and the agents write the design.
 
-A reader is dispatched to read, never to change anything. Its dispatch names the model the installation binds for such
-agents (the rule `the-subagent-model`), the chunk as an explicit list of files, and the path of the findings file it
-writes. It says, in these words:
+## THE SENDINGS — the record of every agent
 
-> READ EVERY FILE ON YOUR LIST WHOLE, with the Read tool — no sampling, no searching in place of reading. Write your
-> findings to the file named below, and return only that it is written. The file holds:
->
-> 1. **ONE ROW FOR EVERY FILE ON YOUR LIST — no file skipped, no two files merged**, in a table with these columns:
->    the file's path · WHY IT EXISTS, in one line (what it is for; what would be missing without it) · WHAT IT
->    CONNECTS TO (what calls it and what it calls, what it reads and writes, each named with its file and line) · what
->    you MEASURED (did it import, run, pass — the command and its result — or `read only`) · every DEFECT you found,
->    each with its file and line.
-> 2. **EVERY ENTRY POINT in your chunk** — a route, a command, a hook, a scheduled job — traced end to end, from the
->    entry to the lowest thing it touches, one hop per line, each hop with its file and line.
-> 3. **EVERY CONVENTION the code relies on** that a reader of one file alone would miss, with where it is set.
-> 4. **THE LIST OF FILES YOU READ.** It equals your list. A file you could not read is named with the reason.
->
-> State only what you read or measured. Where a comment, a name or a document says one thing and the code does
-> another, write what the code does and name the disagreement.
+The planner keeps a table `## THE SENDINGS` on the project's board (the `state-file` skill), one row per agent, the
+row written BEFORE the agent is sent: which stage, which share or which sources, which model. Its phases: SENT →
+RETURNED → PROVEN (a program finds nothing left out, and a fresh agent that built nothing checks it) → COMMITTED. What
+a returned agent says remains goes in its row. An agent with no row was not sent, and after a compaction that table
+is how the planner knows where the work stands. The project's scratchpad carries one line, DO NEXT, rewritten in the
+same commit as every step that moves, so no window repeats a finished step.
 
-When a findings file comes back, count its rows against the chunk's list before using it. A file with no row is a file
-unread: dispatch that file again. A row with no file and line in its connections is a claim, not a finding: send it
-back.
+## THE STAGES — in order
 
-## THE RECORD — `GROUND_TRUTH_<DATETIME>.md`
+1. **DEPRECATE.** The broken `DESIGN.md` stops being canonical the moment the process starts. It is one of the
+   documents the process absorbs: read as a claim, never as a source.
+2. **SIZE AND CUT.** By program, never by reading: list every code file with its lines; cut the code into SHARES, each
+   a group of modules that makes sense to group and small enough for one reader to hold whole (about 250 KB of
+   source), a group too large for one reader cut into parts that are groups of their own. List every other written
+   file in the project with its size and its date — the date it first entered git, a date the file states winning
+   over it. Then locate every document OUTSIDE the project that speaks about it, by a bounded search of the
+   installation for the project's names, and list those with their dates too. Record the shares and the counts in the
+   scratchpad, so no later window measures again.
+3. **GATHER REALITY — the code pass.** One agent per share, all at once, each writing only its own page
+   `design/<share>.md`, in the form the `design-md` skill's THE GROUP PAGES gives: per file a heading
+   `## <path in backticks> — N lines`, why the file exists, then a table whose first column is a line range `a-b`,
+   running from 1 to N with no gap — what the range is, what it does, what calls it, what it calls. It reads at most
+   400 lines at a time and writes their rows before reading on. What it finds wrong it lists at the end of its page,
+   for the board.
+4. **GATHER THE VISION — the document pass.** One agent at a time, oldest documents first, each given a share of
+   sources it can read whole. It reads the current `DESIGN.md` and the owner's recorded rulings first, since a ruling
+   of the owner's outranks every older statement. Then it reads each source whole and places EVERY statement of
+   design, prose or idea in `design/<share>.vision.md`, under the file, function or topic it is about — every
+   statement, not only the ones that conflict. A statement counts as already placed only when the page says the same
+   thing in full; any difference of condition, number, name, reason or example is added. Where a later statement
+   replaces an earlier one, the page gets what stands and `CHANGELOG.md` gets what it replaced, with both dates. A
+   statement about nothing in the code is vision with no code yet, and is kept as that. A statement about the project
+   as a whole goes in `design/the-whole.vision.md`. The agent deletes one of the project's own documents only when
+   every statement of it is placed, and appends one `CHANGELOG.md` entry per deleted file saying where its statements
+   went. A document outside the project is read, its statements placed, and left where it is. Stages 3 and 4 write
+   different files, so they run at the same time.
+5. **FACTOR — per group, by a fresh agent.** With the group's reality page and its vision page both whole in front of
+   it, it writes the group's design at the head of `design/<share>.md`: the whole vision for the group, resolved, in
+   its highest version. For every part of that design it works out the TRUE STATUS — the code does it, the code
+   differs, or no code holds it — and lists each one that is not simply done as a row for the board. For every line
+   range it says which part of the design the range carries, or that no design asks for it. Then it deletes the
+   vision page.
+6. **WRITE THE STAGES — per group, then across groups.** Every stage of every transformation from the code as it is
+   to the highest version, in order. Each stage is a design: what the group is at the end of that stage, what changes
+   in which files, what proves it — complete, everything in it solved end to end. A stage that is a name or one line
+   is not written.
+7. **ROLL UP.** One agent writes the single `DESIGN.md` from the group pages: what the project is, the final design,
+   the stages across groups in the order they are done, and, for every kind of work, which group page to read. Its
+   READ ORDER names no folder of old documents.
+8. **PROVE — by fresh agents that built nothing.** Per code file: every line range is in its group's page and its
+   row says what those lines do. Per deleted document, read from git: every statement of it is in the design or, as
+   replaced, in `CHANGELOG.md`. The stage that missed is run again, until both lists are empty. Then the gates of
+   DONE ONLY WHEN 11, each run bare. Then the owner is told, with the counts.
 
-It is the record that the process ran, and it stays short: the datetime; the inventory's numbers and the branch taken
-(read in one window, or by how many readers over which chunks); where each reader's findings file is; what the old
-design claimed that the code contradicts; the checks of output 4 with what each printed; the questions only the owner
-can answer, each also a row of the board's OPEN table. Name its folder on the new design's READ ORDER, on the line
-`ARCHIVE AND PROGRAM FOLDERS:`. Once the new `DESIGN.md` stands, the record is never consulted as canon; a live ground
-truth beside a live `DESIGN.md` means the process did not finish.
+## WHAT EVERY BRIEF SAYS — whichever stage
+
+A brief is the only context its agent has. It states the goal in the owner's terms, names the exact files the agent
+reads and the ONE file it writes, gives the form of that file, and carries these, in these words:
+
+> Read every file on your list whole, with the Read tool — no sampling, no searching in place of reading; a search
+> only locates. Write as you go, so nothing depends on memory. Write only the file named. Never edit code, tests, a
+> board, a rule or a skill. Never run a test, a daemon or a network call. Never run a git command that changes
+> anything except, where your brief says so, removing a document all of whose statements you have placed. State only
+> what you read. Write no date, no quote, no person's name, no history and nothing about where anything stands into
+> a design page: history goes to `CHANGELOG.md`, and what you find wrong goes in your page's last section, for the
+> board. When done, answer only: the file written, the count of what you read against what you were given, and what
+> you could not do.
+
+## CHECKING WHAT RETURNS
+
+By program first: the wholeness gate lists every code file whose ranges do not run from 1 to its last line, and
+every written file still outside the design. Then by a fresh agent, never by the planner reading the page and never
+by the agent that wrote it. A page with a gap is sent again. After each agent: the gates bare, the row on the board
+marked, the work saved and pushed by its own paths (the rule `top-level-session-worktree`).
 
 ## NEVER
 
-- run it on a new project
-- write the vision before the finding
-- stop at one page of conclusions and the readers' raw files
-- brief a reader to "report what it finds": without the row per file, the pages cannot be assembled and the code is
-  read a second time
-- write a state into the design, or a design statement into the record
-- leave two canonical documents
+- take the code for the truth of what is meant, or write a design from the code alone
+- write the design from a reduction — a summary, a map of contradictions, a list of topics, a reader's findings
+- keep an old document, as archive, record, pointer or reference, or leave a dated record or a findings folder
+- delete a document before every statement of it is placed
+- leave a stage of the way to the final design as a name
+- let the planner read the code or the documents, or check a page by reading it itself
+- send an agent with no row on the board, or leave the scratchpad's DO NEXT line saying a finished step
+- write a state into a design page
+- run it on a new project, or leave two canonical documents
 
 ## THE ORDER OF ATTENTION
 
 ```rune
-[Deprecate] ⇒ [InventoryAtThisDatetime] ⇒ [EstablishByReadingOrMeasuring] ⇒ [RefuseSpin] ⇒ [WriteWhatWasFoundThenTheVisionOnIt] ⇒ [OutputTheDesignSystemThroughDesignMd] ⇒ |ADesignThatAnswersEveryQuestion|
+[Deprecate] ⇒ [SizeAndCut] ⇒ [GatherRealityFromTheCode] ⇒ [GatherTheVisionFromEveryDocument] ⇒ [FactorTheVisionOntoTheCode] ⇒ [WriteEveryStageAsADesign] ⇒ [RollUpIntoOneDesign] ⇒ [ProveByThoseWhoBuiltNothing] ⇒ |OneDesignThatHoldsEverythingAndNothingElseLeft|
 ```
 
 ## NEXT
 
-- stage 6 → the `design-md` skill: the design system is written through it, and its coverage gate closes the run
-- stage 5 → the `state-file` skill: what was found, as rows
+- stages 3 to 7 → the `design-md` skill: every page is written through it, and its wholeness gate closes the run
+- a true status was found → the `state-file` skill: a row of the board
 - the new `DESIGN.md` stands → the `design-toc` skill (its READ ORDER and table of contents), the `archi-diagram`
-  skill (the stack drawn from the new design), the `top-level-design` skill (the reachability check; the project's line
-  in the top-level design that holds it)
-- a question only the owner can answer was found → the `how-to-settle-a-question-for-the-owner` skill
+  skill (the stack drawn from the new design), the `top-level-design` skill (the reachability check; the project's
+  line in the top-level design that holds it)
+- a question only the owner can answer was found → the `how-to-settle-a-question-for-the-owner` skill, and only when
+  no statement in the documents or the owner's recorded rulings settles it
