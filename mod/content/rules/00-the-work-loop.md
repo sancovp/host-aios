@@ -21,7 +21,10 @@ the mode that changes a project; a work session, which uses one, starts from the
 
 **(A) THE SCOPING CONVERSATION — reads canon, produces a GOAL. Writes docs, never features.**
 ```
-0. IS THE PROJECT CONFIGURABLE YET? Every project ends as exactly one of three things — a PROGRAM (a
+0a. DOES THE BASE PRIMITIVE EXIST AND PASS ITS LIVE PROOF? Before prose is renamed, a configuration layer added, or a
+   wrapper or a surface built around a core capability, the primitive it rests on is shown to exist and to pass its
+   live end-to-end proof. Not yet ⇒ building or fixing the primitive IS the work, before anything else; yes ⇒ 0b.
+0b. IS THE PROJECT CONFIGURABLE YET? Every project ends as exactly one of three things — a PROGRAM (a
    vendored package or a library) · an APPLICATION (deployed in the SaaS network) · a PLUGIN (a repo carrying a
    proper Claude plugin, public or private) — and nothing else is ever being made. Configurable = it hardcodes
    nothing about *USER* or the agent (no person named as the user, no machine, no local setting; authorship
@@ -29,8 +32,8 @@ the mode that changes a project; a work session, which uses one, starts from the
    specialize it; our own instance is that thing filled out for us — used directly, equipped on the agent, or made
    part of it. So it is always able to be published, and whether it is published is *USER*'s decision. Name which
    one this project ends as, its install shape ([[00-every-dir-has-a-claude-and-projects-nest]] LAW 1), and whether
-   it is configurable. Not yet ⇒ making it configurable IS the work, before
-   anything else; yes ⇒ the work happens on the configurable thing, and our particulars go only into our
+   it is configurable. Not yet ⇒ making it configurable IS the work, next after 0a and before anything else is built
+   on the primitive; yes ⇒ the work happens on the configurable thing, and our particulars go only into our
    filled-out configuration.
 1. READ THE SCOPE'S CANON ([[00-top-level-design-first]]): the project's CLAUDE.md + DESIGN.md (via its TOC)
    + board · wired into the system ⇒ + THE TOP-LEVEL DESIGN top to bottom (the explained table of contents),
@@ -62,8 +65,12 @@ top-level design → the DESIGN.md that owns them → that subsystem's per-featu
 ## THE READ IS SCOPED BY THE GOAL, AND THE DEV FLOWS CARRY IT
 
 - **A GOAL CARRIES THE NEXT PLANNED RELEASE VERSION, WHOLE.** The design stages the work as planned release versions;
-  a goal's table holds every deliverable of the next one not marked HELD, and the version ships once, whole, judged
-  complete by the session that builds it. Where something the version tests requires a part that must stay
+  a goal's table holds every deliverable of the next one not marked HELD, and the version ships once, whole. The
+  session that builds it completes the table and fixes every finding, since a reviewer's approval never declares a
+  version done; and it never closes its own proof conditions or its own fixpoint (a goal's C2 and C6) — before either
+  is recorded, a fresh agent with none of its conversation checks the proofs, the `git diff` and the design against one
+  question, is this implemented as it says or as it implies, and that agent's verdict is the condition's proof (the boot
+  config's WITNESS STANDS ◐). Where something the version tests requires a part that must stay
   off, a bridge stands in for that part's one step and is one of the version's deliverables; a part merely off for now
   gets none ([[a-version-closes-every-loop]]).
 - **The goal names the reads** — the most specific, only-the-required version of the context: the design's READ

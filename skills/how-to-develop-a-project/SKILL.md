@@ -27,8 +27,10 @@ from here. Under a `/goal`, the goal's read list is step 2's read and the goal f
    first given one by the ground-truth process (the `ground-truth` skill), its HALO SEEM map read during it where it has
    one; and, for a wired project, its top's top-level design (the `top-level-design`
    skill).
-3. **CONFIGURABLE YET?** Name what the project ends as and whether it hardcodes its user, its agent or its machine
-   (rule `00-the-work-loop`, step 0). Not yet ⇒ making it configurable is the work, first.
+3. **THE BASE PRIMITIVE WORKING, THEN CONFIGURABLE YET?** First, does the primitive the work rests on exist and pass
+   its live end-to-end proof (rule `00-the-work-loop`, step 0a)? Not yet ⇒ building or fixing it is the work, before any
+   rename, configuration or wrapper. Then name what the project ends as and whether it hardcodes its user, its agent or
+   its machine (step 0b). Not yet ⇒ making it configurable is the work, next.
 4. **THE DEV FLOW.** Name the dev flow the change follows and open it — the project's `22-seq-<feature>.md`, or its
    how-to-change skill. New architecture gets a new dev flow, placed on the architecture map (rule
    `23-architecture-layer`, the `archi-diagram` skill). A second thing of a kind, or a fix made by hand before, opens

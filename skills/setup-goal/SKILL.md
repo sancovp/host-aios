@@ -21,8 +21,12 @@ description: Write a /goal for a long autonomous run. Use when *USER* says "set 
   a version. A goal is as large as the work allows: everything the design states for that version is being built
   unless the design marks it **HELD**, with the reason it waits, so a goal never shrinks to one part while the rest of
   its version is designed and unheld. A design that plans no versions is given them first, in the design, before the
-  goal is written. The session that builds the version judges it complete against the design; a reviewer's verdict is
-  a finding the session fixes, never the judgment that the version is done. A row only *USER* can move (a ruling, an
+  goal is written. The session that builds the version completes its table against the design and fixes every
+  finding, since a reviewer's approval of a pull request never declares a version done; and it never closes its own C2
+  (every `●` shows its stage) or C6 (the fixpoint): before recording either, it dispatches a fresh agent with none of its
+  conversation — read-only, or in a detached throwaway worktree — which checks the proofs, the `git diff` and the design
+  against one question, is this implemented as it says or as it implies, and that agent's verdict is the condition's
+  proof (the boot config's WITNESS STANDS ◐). A row only *USER* can move (a ruling, an
   approval) is still a row, moved through NEEDS-ASKING.
 - **THE GOAL FILE HOLDS THE TABLE AND ITS CONDITIONS, EXHAUSTIVE.** Every deliverable the design states for the next planned version is a
   ROW of the table in its `## §2`; the columns are the STAGES a deliverable moves through, named in the
@@ -34,7 +38,11 @@ description: Write a /goal for a long autonomous run. Use when *USER* says "set 
   condition is ever dropped or reworded. Only *USER* narrows a goal, and then the goal is REPLACED: a new goal file
   holding what remains, the old file removed in the same PR.
 - **THE CHECKSUMS ARE KEPT AS THE RUN GOES.** A cell turns `●` when its proof — a file the run wrote: a test's
-  output, a command's output, a screenshot — is written, and the cell names it. A condition is met when its proof is
+  output, a command's output, a screenshot — is written, and the cell names it. Proofs differ by kind: a stage of code
+  is proven by a real command and its output verbatim, a new law's test shown failing without the change and passing
+  with it; a stage of a document or a design by the file read whole, its `git diff`, the canonical gates (the
+  read-order check, the state-file gate) and a fresh reader's verdict on that one question — never by a program written
+  to judge it. A condition is met when its proof is
   recorded beside it with that file's sha256 (`goal_check.py --record`). Anyone can re-check a met condition against
   its file. The run is done when every cell of the table is filled and `goal_check.py <goal file>` exits 0: every
   condition met, every checksum right, nothing dropped. Where the repository has a merge queue, the run fills the table
@@ -154,11 +162,11 @@ the host's · `{{OPEN_LIST}}` = the file where the project keeps its open questi
 
 ### THE CONDITIONS (each met one carries its proof and that file's sha256)
 - C1 · THE TABLE is complete: every cell of every row is `●` naming its proof file under `{{NAME}}/proofs/`, or `—` as this file's writer set it; a deliverable the SPEC requires that no row holds is added as a new row before work on it starts; no row, stage or `—` is dropped, reworded or changed against the default branch's copy of this file: the proof holds the completed table and `git diff` of this file against the default branch's copy, showing only blank cells turned `●`, rows added with any `—` they set, and the checker's own edits of the condition lines.
-- C2 · Every `●` reflects its stage: the proof file it names exists, holds each command run and its output verbatim, and shows what that stage's definition and the row's own words require: the proof lists every cell's proof file with its sha256 and, for each, the lines in it that show what the cell requires.
+- C2 · Every `●` reflects its stage: the proof file it names exists, holds the proof its stage's kind requires — for a stage of code each command run and its output verbatim, for a stage of a document the file read whole, its `git diff`, the canonical gates run and a fresh reader's verdict — and shows what that stage's definition and the row's own words require: the proof lists every cell's proof file with its sha256 and, for each, the lines in it that show what the cell requires, and holds the verdict of a fresh agent with none of the run's conversation that checked every cell against its proof before this condition was recorded.
 - C3 · The boards reflect the table: each board row §1 names stands at its target phase only once every table row that names it has reached its last stage, and each board moved in the same commit as the work: the state gate run bare on every board, and the default branch's `git log` of each board naming the commits that moved it.
 - C4 · SHIPPED: open PRs checked first and your own landed; every repository the run touched shipped by its own git loop — where it has a merge queue, every commit on the worktree's branch, the default branch merged in, the branch PR'd READY and merged by the CI/CD agent (while its runner starts no job, by the run's queue by hand, labelled for the late review — or, when the harness keeps the run from merging its own PR, handed off READY with its verdict on its tip, for the next session that holds the CI); where its rules put work on its default branch, committed and pushed there — and 0 unpushed at hand-off.
 - C5 · NEEDS-ASKING, never blocked: a question only *USER* can answer is asked with the AskUserQuestion tool the turn it is reached and stays listed OPEN in {{OPEN_LIST}}; never guessed; only work that does not depend on it proceeds; the moment every open row and condition waits on *USER*, every open question goes to *USER* at once, in as few AskUserQuestion calls as its four-question limit allows, never in a text reply to the Stop hook. Only a key, a secret or a physical act stops the run.
-- C6 · FIXPOINT: a full re-read of {{SPEC}} and every touched file produces NO edit, and no deliverable the SPEC requires is missing from THE TABLE. If either fails, loop.
+- C6 · FIXPOINT: a full re-read of {{SPEC}} and every touched file produces NO edit, and no deliverable the SPEC requires is missing from THE TABLE, confirmed by a fresh agent with none of the run's conversation before this condition is recorded, its verdict the proof. If either fails, loop.
 
 ## §3 — THE READ LIST (at start and after every compaction: in order, whole, before any edit or answer)
 1. `gh pr list --state open` on the repo — land your own open PRs on this work first
@@ -175,11 +183,19 @@ the host's · `{{OPEN_LIST}}` = the file where the project keeps its open questi
 | `goal_check.py <goal> --record C<n> <file>` | records a met condition: the proof file (relative to the goal file's dir) and its sha256 |
 | `goal_check.py <goal> --add "<condition>"` | adds a condition the design requires and §2 lacked |
 
-It reads only the condition lines of §2 (`- C<n> · …`); the table above them is the run's to fill, and C1 and C2 are
-what bind the table to the checksums. It REFUSES: a condition dropped or reworded against the default branch's copy
-of the goal file · a met condition whose proof file is missing or no longer matches its checksum · a prompt that
-lists a condition · a §2 without SHIPPED, NEEDS-ASKING and FIXPOINT · a malformed or duplicated condition line. Run
-it bare and read what it says.
+It reads the condition lines of §2 (`- C<n> · …`) and, where §2 holds `### THE TABLE`, the table's rows (`| R<n> | …`);
+a goal with no table is checked by its conditions alone, as before. It REFUSES: a condition dropped or reworded against
+the default branch's copy of the goal file (or `--base <ref>`) · a met condition whose proof file is missing or no
+longer matches its checksum · a prompt that lists a condition · a §2 without SHIPPED, NEEDS-ASKING and FIXPOINT · a
+malformed or duplicated condition line · a path with no goal file · and, where the goal or its base copy has a table:
+a row not of the form `| R<n> | <the deliverable> | <a cell per stage> |`, or repeating another row's id · a cell that is none of blank, `—` or
+`● <file>` · a `●` naming a proof file
+(under the goal's `proofs/`, else beside the goal file) that is missing or empty · the base copy's table removed, or
+one of its rows dropped or its deliverable reworded · a `—` the base copy set, changed · every condition met, or C1
+met, while a cell of the table is blank. A row added is allowed. Every run on a goal file prints a short block headed `AIOS MARKDOWN SYSTEM` — read a file whole with Read, change it only with Write
+and Edit, a design holds the final state only, the current state only in the boards, the read-order check and the
+state-file gate run bare, prose judged by reading it, C2 and C6 closed by a fresh reader — so the checker is the one
+helper a goal needs. Run it bare and read what it says.
 
 ## THE RESPONSE FORMAT
 
@@ -200,6 +216,8 @@ sits beside the prompt gets pasted with it. One line after the block names the g
 - a deliverable written as a prose condition instead of a row of the table
 - a table scoped to what is convenient — its rows are every deliverable of the next planned version not marked HELD
 - a goal smaller than a planned version, or a version shipped in parts; a reviewer's verdict taken as the judgment that the version is done
+- C2 or C6 recorded by the session that built the version without a fresh agent's verdict as its proof · a stage of a
+  document proven by a program written to judge it
 - a row, a stage, a `—` or a condition dropped or reworded once the goal is on the default branch — the table only
   grows; a goal *USER* narrows is replaced by a new goal file, never edited down, and so is a goal found to hold a
   cell or a condition no run can meet after it reached the default branch: the new file carries every old row's and

@@ -35,7 +35,9 @@ skill; this rule is how that form gets made, shipped and proven.
    proof shows; THE TABLE, with a ROW for EVERY deliverable the next planned version holds and the design does not mark HELD — exhaustive, walked section
    by section, each row saying what each of its cells reflects, a `—` only where the row has no such stage, and a row for
    every bridge that stands in for a part that must stay off so that what requires it can be tested ([[a-version-closes-every-loop]]); and the
-   six CONDITIONS about the table, each proven by a file the run will record with its checksum. A row is never scoped
+   six CONDITIONS about the table, each proven by a file the run will record with its checksum — C2 and C6 closed only
+   by the verdict of a fresh agent with none of the run's conversation, never by the session that built the version
+   (the boot config's WITNESS STANDS ◐). A row is never scoped
    to what is convenient, and once merged no row, stage, `—` or condition is dropped or reworded; the table only grows. A question for *USER* is
    asked with the AskUserQuestion tool AND listed OPEN in the project's OPEN list — never guessed; only work that
    does not depend on it proceeds; when every open condition waits on *USER*, the run puts every open question in
@@ -100,6 +102,6 @@ it reached the default branch is replaced the same way, every condition's intent
 
 NOT:[hand *USER* a merge, a rebase, any git step or a word about a stopped queue · send the goal file through a worktree or a pull request (it is work) · merge a merge-queue repository's rule PR yourself while its CI runs · hand over a goal that is not on
 the default branch · list a condition in the prompt · write a deliverable as a prose condition instead of a row ·
-scope the table to less than the next planned version holds · write a goal smaller than a planned version, or ship a version in parts · take a reviewer's verdict as the judgment that the version is done · drop or reword a row, a stage, a `—` or a condition once merged · name a movable thing by its path · put a note, a date or a goal pointer in any state file ·
+scope the table to less than the next planned version holds · write a goal smaller than a planned version, or ship a version in parts · take a reviewer's verdict as the judgment that the version is done · let the session that built a version close its own C2 or C6 · drop or reword a row, a stage, a `—` or a condition once merged · name a movable thing by its path · put a note, a date or a goal pointer in any state file ·
 write a READ line that defers to a hook or to what the injected rules order · put a quote, a date or a history
 note in the goal]
