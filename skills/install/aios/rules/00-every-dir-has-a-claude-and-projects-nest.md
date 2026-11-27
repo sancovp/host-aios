@@ -11,7 +11,7 @@ things: a PROGRAM (a vendored package or a library) · an APPLICATION (deployed 
 repo carrying a proper Claude plugin, public or private); nothing else is ever being made · **each declares its
 INSTALL SHAPE**, one or more of: skills · an agent file · tool servers and hooks · an AIOS (shipped as its plugin's
 install skill, LAW 2) · an agent as its own app · a World · a desktop app with a daemon · a hosted app · a package
-· **each is made CONFIGURABLE first** — it hardcodes nothing about the user or the agent, never naming a person as the user and
+· **each is made CONFIGURABLE first, once its base primitive works** (`00-the-work-loop` step 0a) — it hardcodes nothing about the user or the agent, never naming a person as the user and
 naming no machine and no local setting, and everything particular to one use comes from a configuration filled out
 to specialize it; our own instance is that thing filled out for us — used directly, equipped on the agent, or made
 part of it — so it can always be published, and whether it is published is the user's decision · **THE WORLD DIR** ([[canonical-source-dirs]] LAW 1, bound per installation) holds the AIOS's own folder, and

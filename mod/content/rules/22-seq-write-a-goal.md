@@ -80,7 +80,7 @@ it reached the default branch is replaced the same way, every condition's intent
 ## THE PROOF
 
 - `python3 <the deployed setup-goal skill>/goal_check.py <goal>` bare → EXIT=2, every condition `open`, no REFUSED
-  line (it refuses a condition in the prompt, a missing SHIPPED · NEEDS-ASKING · FIXPOINT, a malformed line) ·
+  line (every refusal it makes, of the conditions and of the table, is listed in the `setup-goal` skill's THE CHECKER) ·
   `grep -c '^| R[0-9]' <goal>` → the number of deliverables the spec requires, every cell blank or `—`
 - `awk '/^```$/{f=!f;next} f' <goal> | wc -c` → under 4000 · `grep -c 'injected rules order' <goal>` → 0
   · `grep -c '^Read the goal at' <goal>` → 1
