@@ -18,12 +18,12 @@ Reason explicitly, step by step:
 State the conclusion, then carry it forward as the input to the next step.
 
 ## Step 2 — invoke skill `ground-truth`
-*Run the GROUND_TRUTH process — a project exists and its DESIGN.md is wrong, mangled or absent. Deprecate it, go through everything at this datetime regardless of what it says, establish every line by READING or MEASURING, no spin, then write the corrected vision and the refactor pathways onto what was FOUND. Outputs DESIGN.md; leaves GROUND_TRUTH_<DATETIME>.md as the dated record. THE LAW is 00-samaya section V — never a greenfield, never two canonical docs*
+*WHEN a project that exists has a DESIGN.md that is wrong, mangled or absent, run this process on it before any other work there — deprecate the design, go through everything that exists as it is at this datetime, establish every line by reading or measuring, then output the design system through the `design-md` skill, its top page and the pages that cover every file of the code, with the boards carrying what was found and a dated GROUND_TRUTH record left — never on a new project, never leaving two canonical documents.*
 
 Invoke the **ground-truth** skill (no extra input)
 
 ## Step 3 — invoke skill `design-md`
-*Author or repair the ONE DESIGN.md a project owes. Prose, one section per FEATURE, the intended final state and the steps by which it evolves — never where anything stands, which is a row of its boards; a state found in it fenced where it stands, every word unchanged, moved into the boards by whoever next works on the project, the fence removed only once that state is reconciled and every intended thing is built as intended — a detail doc rolled IN with a pointer left behind, updated in the same commit as the change it describes. THE LAW is rule 26 — one per PROJECT never per dir, named DESIGN.md and nothing else, and a loading mechanism is never a design doc*
+*WHEN you are about to write, change or repair a project's DESIGN.md or a page under it, or a file is added to, renamed in or removed from its code, open this skill first and write the design through it — one DESIGN.md per project at the head of a design system that covers every file of the code, why it exists and how it connects to everything else, a long explanation a linked page in its `design/` folder, the intended final state and its steps and never where anything stands — then run its coverage gate bare.*
 
 Invoke the **design-md** skill (no extra input)
 

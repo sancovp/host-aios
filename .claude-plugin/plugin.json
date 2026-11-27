@@ -1,7 +1,7 @@
 {
   "name": "host-aios",
   "description": "The host AIOS's skills as a Claude Code plugin: the thirteen construction stations and the ngöndro workflow they factor, the gates a project's documents pass (the state-file gate for a board, the top-level-design gate and the master map's check, the reachability check that every document is reached from the top, the design read-order and table-of-contents check), the skills that author a DESIGN.md, a board, an architecture map and a ground truth, the skill that makes a kind's abstraction before its second piece, the rule-draft box, goal writing, saving a project's outputs, and the learn-about skills for Claude Code's own parts. Its install skill lays the host AIOS out in a folder of its own — the boot config, the rules and a starter top-level design, which a plugin install does not load — with the global Claude folder pointing down to it and the master map naming its top; its check hook says at every session start whether that folder is whole and every map line resolves; its dispatch guard refuses an agent dispatch that orders a worktree on a new branch, and its skill guard refuses a write of a DESIGN.md, a board, an architecture map or a top-level design while the skill that makes it is unopened; its fixpoint guard holds the first stop of a turn that changed a file once, for a re-read that changes nothing.",
-  "version": "0.7.11",
+  "version": "0.7.12",
   "author": {
     "name": "sancovp",
     "url": "https://github.com/sancovp"

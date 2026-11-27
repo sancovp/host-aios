@@ -12,7 +12,7 @@ PRECEDENCE:[sits ABOVE every other rule · read right after the canonical docs, 
 NOT:[ask *USER* to confirm something they cannot see ("is this map right?" / "does this match the code?" are FORBIDDEN questions) · hand back code they cannot read · hand back a pile of docs only an author could follow · assert any of the above of a user whose [[user_info]] row does not state it]
 
 2. MAINTAIN DOCUMENTATION LIVE (the instant something is learned, it goes to its home — [[00-rules-are-live-state]]):[
-- `DESIGN.md` per project (modularized when large) = the intended final architecture and the steps by which it evolves, never where it stands ([[26-canonical-design]])
+- `DESIGN.md` per project = the head of its design system: the intended final architecture and the steps by which it evolves, covering every file of the code — why it exists, what it connects to — a long explanation a linked page in its `design/` folder, never where it stands ([[26-canonical-design]])
 - the boards (`_states.md`) per project/dir = where everything there stands, as rows at the states its dev flows define — the one place a current state is written ([[28-distributed-state]])
 - `CLAUDE.md` in EVERY directory = what the dir IS + how it fits ([[00-every-dir-has-a-claude-and-projects-nest]]) — no unmarked dirs
 - a SEQUENCE DIAGRAM per development/runtime flow added ([[22-activity-flow]])
@@ -39,7 +39,7 @@ DO:[
 [if an action's context can be represented as text, its function as code, and its output projected back into the object needed — it is end-to-end the agent's job · deliver the whole loop (context → function → output-in-the-real-object), not advice, not a partial scaffold]
 NOT:[hand back the user's own work on a task that passes the test]
 
-## V. GROUND_TRUTH — A PROCESS. It is RUN; it OUTPUTS a corrected DESIGN.md and LEAVES an artifact.
+## V. GROUND_TRUTH — A PROCESS. It is RUN; it OUTPUTS a corrected DESIGN SYSTEM, written through the `design-md` skill, and LEAVES an artifact.
 
 ⛔ **NOT a document class · NOT a proto-DESIGN.md · NOT a tier · nothing "morphs."** A PROCEDURE
 flow ([[28b-every-workflow-is-a-slice-of-one-sequence]]): every stage runs every time, and nothing
@@ -56,9 +56,19 @@ THE STAGES (in order, obligations):[
 4. no spin · no aspiration mixed in · nothing renamed nicer than it is
 5. write what was FOUND as rows of the project's boards, every state it needs defined with its row, and onto it the
    corrected VISION + the required REFACTOR PATHWAYS — the final state and the steps that reach it
-6. OUTPUT `DESIGN.md` — canonical: the final state and its steps, the state found standing on the boards
+6. OUTPUT THE DESIGN SYSTEM, THROUGH THE `design-md` SKILL — canonical: the top page `DESIGN.md`, the final state and
+   its steps, and the detail pages in `design/` that cover every file of the code, why each exists and what it connects
+   to; the state found stands on the boards · a run that ends on one page of conclusions has not output it
 ]
-ARTIFACT:[`GROUND_TRUTH_<DATETIME>.md` — dated · archival · the record that the process ran]
+THE READERS:[OPEN THE `ground-truth` SKILL FIRST — the Skill tool, by its name — and run the process through it · where
+the code exceeds one window and readers are dispatched, each is briefed by that skill's READER'S BRIEF: for EVERY file
+of its chunk one row — why the file exists, what it connects to, each connection with its file and line — written to a
+findings file, so the pages of stage 6 are assembled from the readers' files and the code is read once]
+DONE ONLY WHEN:[the coverage gate (the `design-md` skill's `check_design_covers_code.py`) names no code file · the
+read-order check and the reachability check pass · the boards carry what was found · the dated record exists · each
+check run bare and read]
+ARTIFACT:[`GROUND_TRUTH_<DATETIME>.md` — dated · archival · the record that the process ran; every reader's findings
+file kept beside it]
 
 ⛔ CANONICITY — EXACTLY ONE CANONICAL DOC, ALWAYS:[
 - `DESIGN.md` broken ⇒ deprecated; the ground truth carries trust ONLY until stage 6 outputs
@@ -67,6 +77,8 @@ ARTIFACT:[`GROUND_TRUTH_<DATETIME>.md` — dated · archival · the record that 
 ]
 NOT:[
 - treat it as a document class, a standing "current state" tier, or a thing that becomes DESIGN.md
+- end it on one page and the readers' raw findings, with no page covering the files — the code then has to be read again to answer anything
+- dispatch a reader without the row-per-file brief
 - run it on a greenfield project
 - write the vision before the finding (DWA: fixing a system never honestly inventoried)
 - make `_state.md` "the vector between the two docs" — what IS lives in the board's `●` marks

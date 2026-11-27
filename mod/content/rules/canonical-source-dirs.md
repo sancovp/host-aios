@@ -33,7 +33,9 @@ LAW 4 — EVERYTHING MADE IS RECORDED WHERE IT LIVES, AND THAT RECORD IS READ BE
 - **every thing the agent makes** — a file, a dir, a page, an offer, a document, a design section, a script, a deploy,
   a box, a skill — lands in the canonical home, in the dir whose job it is, and **the index of that dir carries ONE
   LINE saying what it is**, written the same turn it is made: its `CLAUDE.md` "what is here" table, or the section of
-  the project's `DESIGN.md` that owns its topic, with a link down ([[every-level-describes-and-breadcrumbs-below]])
+  the project's `DESIGN.md` that owns its topic, with a link down ([[every-level-describes-and-breadcrumbs-below]]) ·
+  a file of a project's code gets its line in that project's design — why it exists and what it connects to — in the
+  same change that makes it ([[26-canonical-design]])
 - **the indexes are the agent's memory of its own work.** What was made, and where, is known by reading the indexes
   from the project down — never by recall, never from a past conversation. A thing that is not reachable from its
   project's index has not been made yet, however long its file has existed: write its line

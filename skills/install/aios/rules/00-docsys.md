@@ -26,7 +26,7 @@ new release
 | artifact | the LAW (global) | THE TEMPLATE | per-project instance |
 |---|---|---|---|
 | THE SHAPE (how work is spent) | `00-the-work-loop` | — (it is the shape) | — |
-| DESIGN.md | `26-canonical-design` | its READ ORDER first, then prose, one section per FEATURE: the intended final state and the steps to it, never where it stands | `<project>/DESIGN.md` |
+| DESIGN.md | `26-canonical-design` | its READ ORDER first, then prose, one section per FEATURE: the intended final state and the steps to it, never where it stands; every file of the code covered — why it exists, what it connects to — a long explanation a linked page in `design/` | `<project>/DESIGN.md` · `<project>/design/` |
 | THE TREE | `00-the-work-loop` § TREE LAW | root `20-dir-tree.md` IS the worked template | `<repo>/.claude/rules/20-dir-tree.md` |
 | THE ARCHITECTURE MAP (the stack diagram) | `23-architecture-layer` | rule 23's worked stack (flowchart TB · subgraph = layer/boundary · arrow = dependency · deps end at their seam · drawn from DESIGN.md, before any code · every dev flow placed on it) | `<project>/.claude/rules/21-architecture-diagrams.md` |
 | DEV FLOWS | `22-activity-flow` + `28b` (THE GENERATOR — never invent, specialize) | 28b's worked table + diagram | lifecycle → a states TABLE · procedure → `22-seq-<feature>.md` |
@@ -36,14 +36,15 @@ new release
 | SCAFFOLD | `00-every-dir-has-a-claude-and-projects-nest` · `20-progressive-disclosure` · `every-level-describes-and-breadcrumbs-below` | the CLAUDE.md + `.claude/{rules,skills,agents}` shape | every dir |
 | CANON | `00-canonical-doc-paths` · `00-top-level-design-is-an-lfp-rollup` | — | THE MASTER MAP, and each top's two anchors: its TOP-LEVEL DESIGN · its TOP-LEVEL STATES DOC |
 | METHOD | `00-size-the-corpus…` (the algebra) | project-scoped — a project writes its own worked instance | — |
-| GATES | `24-scaffold-to-harness` | — | the `state-file` skill's `check_state_files.py` · the `top-level-design` skill's `check_top_level_design.py` + its `hook.py` and its `check_reachable.py` · the `design-toc` skill's `design_toc.py --check` (all ship with this AIOS) |
+| GATES | `24-scaffold-to-harness` | — | the `state-file` skill's `check_state_files.py` · the `top-level-design` skill's `check_top_level_design.py` + its `hook.py` and its `check_reachable.py` · the `design-toc` skill's `design_toc.py --check` · the `design-md` skill's `check_design_covers_code.py` (all ship with this AIOS) |
 
 ## THE PATTERNS UP FRONT — each kind of file, the check it passes before a version leaves the machine
 
 | kind of file a version changes | its check |
 |---|---|
 | a board (`*_states.md`) | the state-file gate, `check_state_files.py <the board's path>` |
-| a `DESIGN.md` | the read-order check: its READ ORDER and its TOC rule current, then `design_toc.py <project> --check` (the `design-toc` skill) → CURRENT — the read order of every `DESIGN.md` checked, and its table of contents where the project keeps one |
+| a `DESIGN.md` | the read-order check: its READ ORDER and its TOC rule current, then `design_toc.py <project> --check` (the `design-toc` skill) → CURRENT — the read order of every `DESIGN.md` checked, and its table of contents where the project keeps one · the coverage gate, `check_design_covers_code.py <project>` (the `design-md` skill) → every code file of the project named in `DESIGN.md` or a page it reaches |
+| a file of a project's code — added, renamed or removed | the coverage gate, `check_design_covers_code.py <project>` (the `design-md` skill), after the file's line is written in the design |
 | every document a design reaches | the reachability check, `check_reachable.py` (the `top-level-design` skill), run from each top-level design and each `DESIGN.md` the version changes → nothing unreached |
 | a top-level design | the top-level-design gate, `check_top_level_design.py` — every top THE MASTER MAP names, else the bound one |
 | THE MASTER MAP | the map check, `check_top_level_design.py --map <the map>` |

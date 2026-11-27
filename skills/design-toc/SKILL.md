@@ -8,8 +8,9 @@ description: Open at ANY edit of a project's DESIGN.md — keep the READ ORDER a
 ## THE READ ORDER — every DESIGN.md, big or small
 
 Every `DESIGN.md` opens with its READ ORDER (the rule `26-canonical-design`): its first `##` heading is `## READ ORDER`,
-and under it, what this level is, then for which work which child design and which procedure to read, then one line
-naming the folders the checks skip:
+and under it, what this level is, then for which work which section, which page, which child design and which procedure
+to read, then the line naming the folders this check and the reachability check skip, and, where the project holds code
+that is a copy, generated output or run evidence, the line naming the folders the coverage gate leaves unchecked:
 
 ```
 ## READ ORDER
@@ -19,6 +20,7 @@ naming the folders the checks skip:
 - for <which work> → `<child>/DESIGN.md` · <its procedure: a dev flow, a skill>
 - for <which work> → §<n> · <its procedure>
 - ARCHIVE AND PROGRAM FOLDERS: `<folder>/` · `<folder>/`
+- COPIES, GENERATED OUTPUT AND RUN EVIDENCE: `<folder>/`
 ```
 
 It names every child `DESIGN.md` beneath it — the nearest `DESIGN.md` down each folder, outside the folders its
@@ -64,3 +66,5 @@ it holds; a project with no TOC rule passes or fails on its READ ORDER and its s
   passage written as rows of its board, any state it needs defined with its dev flow; the fence is removed only once the
   state is reconciled and every intended thing is built as intended
 - the design has documents beneath it → the `top-level-design` skill's `check_reachable.py`, from this `DESIGN.md`
+- the project has code → the `design-md` skill's `check_design_covers_code.py`, on the project: every code file named in
+  the design or a page it reaches

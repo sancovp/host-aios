@@ -22,11 +22,13 @@ from here. Under a `/goal`, the goal's read list is step 2's read and the goal f
    the request in one line>`. The scratchpad loads in every window and after every compaction, so you read it again
    without being asked.
 2. **THE DESIGN READ.** Find the top and check the wiring (rule `00-top-level-design-first`), then read the project's
-   canon: its `CLAUDE.md`; its `DESIGN.md` whole, its READ ORDER (the `design-toc` skill) naming what else to follow;
-   every board in its `.claude/rules/` whole (the `state-file` skill); its scratchpad — a project with no `DESIGN.md`
-   first given one by the ground-truth process (the `ground-truth` skill), its HALO SEEM map read during it where it has
-   one; and, for a wired project, its top's top-level design (the `top-level-design`
-   skill).
+   canon: its `CLAUDE.md`; its `DESIGN.md` whole, its READ ORDER (the `design-toc` skill) naming what else to follow,
+   and the pages of its `design/` folder the work touches; every board in its `.claude/rules/` whole (the `state-file`
+   skill); its scratchpad — a project with no `DESIGN.md` first given one by the ground-truth process (the
+   `ground-truth` skill), which outputs the design system through the `design-md` skill, its HALO SEEM map read during
+   it where it has one; and, for a wired project, its top's top-level design (the `top-level-design` skill). What the
+   design and its pages cannot answer is a page to write (the `design-md` skill), never a reason to read the code again
+   and write nothing down.
 3. **THE BASE PRIMITIVE WORKING, THEN CONFIGURABLE YET?** First, does the primitive the work rests on exist and pass
    its live end-to-end proof (rule `00-the-work-loop`, step 0a)? Not yet ⇒ building or fixing it is the work, before any
    rename, configuration or wrapper. Then name what the project ends as and whether it hardcodes its user, its agent or
@@ -39,8 +41,9 @@ from here. Under a `/goal`, the goal's read list is step 2's read and the goal f
 5. **THE DEV SPACE.** Pull the copy in use with nothing lost, then make a worktree of its own (rule
    `top-level-session-worktree`: CODE, and point 12); write its path into your mode line.
 6. **THE CHANGE.** Make it there, through the project's own system — its compiler, its library, its generator — never by
-   typing what the system computes; the project's `DESIGN.md` rewritten in the same change (rule
-   `26-canonical-design`, the `design-md` skill).
+   typing what the system computes; the project's design rewritten in the same change, every file added, renamed or
+   removed given its line there — why it exists, what it connects to (rule `26-canonical-design`, the `design-md` skill
+   and its coverage gate).
 7. **A VERSION.** Run every check for the kinds of file the change touches (rule `00-docsys`, THE PATTERNS UP FRONT),
    raise the version in the project's build file and append its `CHANGELOG.md` entry (rule
    `top-level-session-worktree`, point 13).

@@ -13,7 +13,7 @@ load at the moment it matters, it does not bind]
 THE CHAIN (each level owes a description + a link to the next):[
 - THE MASTER MAP ([[00-canonical-doc-paths]]) → every top-level design, one line and a link each
 - a top-level design → every `DESIGN.md` beneath its top outside the home-unknown band, and the band itself named as outside it
-- a `DESIGN.md` → every child dir's `DESIGN.md` (its READ ORDER names each — [[26-canonical-design]]) AND every document under it — a detail design, a pattern, a reference, a note's record — each by its one-line summary and link
+- a `DESIGN.md` → every child dir's `DESIGN.md` (its READ ORDER names each — [[26-canonical-design]]) AND every document under it — a detail design, a pattern, a reference, a note's record — each by its one-line summary and link, AND every file of its code, each by its line of why it exists and what it connects to, in the section that owns its topic or in a page of `design/` that section links
 - **EVERY SECTION → the detail docs for ITS OWN TOPIC**
 - a folder's `CLAUDE.md` → every file and folder in it that a reader may need, one line each
 - the states index (`29b-state-index`) → every `_states.md`
