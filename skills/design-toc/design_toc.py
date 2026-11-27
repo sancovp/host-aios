@@ -17,10 +17,12 @@ block, from DESIGN.md's `##` and `###` headings (headings inside code fences are
     python3 design_toc.py <project_dir> --init    # create the TOC rule if it does not exist, then write
 
 THE STATE (rule 26-canonical-design): a design states the intended final state and the steps by which it evolves, and
-where anything stands lives only in the project's boards. `--check` refuses a design holding a state mark — `ASPIRATIONAL`,
-an as-built statement, a dated `✅ MEASURED` or `⏳ AS OF` claim — outside its section headed `⛔ STATE WRITTEN HERE BY
-MISTAKE`, naming each line; inside that section a state is admitted, and the check names how many lines of it are still to
-be moved into the boards. Lines inside a code fence are not read for it.
+where anything stands lives only in the project's boards. A design found holding state has each passage of it fenced
+where it stands, between the fence's opening line `> **WARNING: STATE MENTIONED IN DESIGN.MD -- …**` and its closing
+line `> **END OF STATE FENCE**`. `--check` admits every line from an opening line to its closing line, and names how
+many lines the fences hold that are still to be moved into the boards; it refuses a state mark — `ASPIRATIONAL`, an
+`as built` statement, a `✅ MEASURED` or `⏳ AS OF` claim — outside every fence, naming each line, and an opening
+line with no closing line after it. Lines inside a code fence are not read for it.
 
 <project_dir> defaults to the current directory. A project with no TOC rule is checked for its READ ORDER alone.
 """
@@ -37,7 +39,10 @@ READ_ORDER = "READ ORDER"
 ARCHIVE_LINE = "ARCHIVE AND PROGRAM FOLDERS:"
 _TICKS = re.compile(r"`([^`\n]+)`")
 _NAMED = re.compile(r"[\w./~@+-]*DESIGN\.md")
-STATE_SECTION = "⛔ STATE WRITTEN HERE BY MISTAKE"
+FENCE_OPEN = ("> **WARNING: STATE MENTIONED IN DESIGN.MD -- NOT ALLOWED IN DESIGN. THIS MUST MOVE TO STATE FILE WHEN "
+              "WORKED ON. DO NOT REMOVE THIS FENCE UNTIL THE STATE IS RECONCILED AND EVERY INTENDED THING IS BUILT AS "
+              "INTENDED. DO NOT SKIP THIS.**")
+FENCE_CLOSE = "> **END OF STATE FENCE**"
 STATE_MARK = re.compile(r"ASPIRATIONAL|\bAS BUILT\b|\b[Aa]s built\b|✅ MEASURED|⏳ AS OF")
 
 SKELETON = """# DESIGN.md — THE TABLE OF CONTENTS (and where each current answer lives)
@@ -184,26 +189,24 @@ def check_read_order(project):
 
 
 def check_state(text):
-    """(each line outside the marked section holding a state mark, as `L<n>: <text>`; the marked section's lines)."""
-    outside, inside, level, fenced = [], 0, 0, False
+    """(each line outside every state fence holding a state mark, as `L<n>: <text>`; the fenced lines that are not
+    blank; the line number of a fence's opening line with no closing line after it, or None)."""
+    outside, inside, opened, code = [], 0, None, False
     for n, line in enumerate(text.split("\n"), 1):
         if line.lstrip().startswith("```"):
-            fenced = not fenced
+            code = not code
             continue
-        if fenced:
+        if code:
             continue
-        h = re.match(r"^(#+) ", line)
-        if h:
-            if STATE_SECTION in line:
-                level = len(h.group(1))
-                continue
-            if level and len(h.group(1)) <= level:
-                level = 0
-        if level:
+        if opened is None and line.strip() == FENCE_OPEN:
+            opened = n
+        elif opened is not None and line.strip() == FENCE_CLOSE:
+            opened = None
+        elif opened is not None:
             inside += 1 if line.strip() else 0
         elif STATE_MARK.search(line):
             outside.append(f"L{n}: {line.strip()[:120]}")
-    return outside, inside
+    return outside, inside, opened
 
 
 def main():
@@ -216,10 +219,13 @@ def main():
         return 2
     if "--check" in sys.argv:
         findings, kids = check_read_order(project)
-        outside, inside = check_state(open(design, encoding="utf-8").read())
+        outside, inside, opened = check_state(open(design, encoding="utf-8").read())
         for line in outside:
-            findings.append(f"it holds a current state outside its section `{STATE_SECTION}` — move it there, then into "
-                            f"the boards (rule 26-canonical-design): {line}")
+            findings.append(f"it holds a current state outside every state fence — fence the passage where it stands, "
+                            f"then move it into the boards (rule 26-canonical-design): {line}")
+        if opened is not None:
+            findings.append(f"its state fence opened at L{opened} has no `{FENCE_CLOSE}` after it — close the fence "
+                            f"where its passage ends (rule 26-canonical-design)")
         toc = "no TOC rule: checked for its READ ORDER alone"
         if os.path.isfile(rule):
             text = open(rule, encoding="utf-8").read()
@@ -236,7 +242,7 @@ def main():
             for f in findings:
                 print(f"  ✘ {f}")
             return 1
-        owed = f"; its section `{STATE_SECTION}` holds {inside} line(s) of state to move into the boards" if inside else ""
+        owed = f"; its state fences hold {inside} line(s) of state to move into the boards" if inside else ""
         print(f"design_toc: CURRENT — {design}: its READ ORDER names its {len(kids)} child design(s); {toc}{owed}")
         return 0
     if not os.path.isfile(rule):

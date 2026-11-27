@@ -47,7 +47,9 @@ else is built, works, is reached, is pending, is disabled or was changed. A stat
 the turn it is found, and its claim is put to a run before it is repeated. A position no dev flow yet
 defines is defined in the same change as its row: the dev flow (a `22-seq-<feature>.md`, or the how-to skill that
 states its states) names the state, the table gets its column, then the row is written. A design found holding state
-keeps it in its marked section only until it is moved here, as rows.
+has each passage of it fenced where it stands (rule `26-canonical-design`); whoever next works on its project moves each
+fenced passage here, as rows, and the fence is removed only once the state is reconciled and every intended thing is
+built as intended.
 
 ## Chain (custom syntax)
 ```rune

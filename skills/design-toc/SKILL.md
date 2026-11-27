@@ -44,16 +44,23 @@ touched. The law is the rule `design-docs-keep-a-toc`.
 `python3 "${CLAUDE_SKILL_DIR}/design_toc.py" <project_dir> --check`, run bare, and read what it says. It checks the
 READ ORDER of the project's `DESIGN.md` — refusing one with no READ ORDER at its head, one that does not name a child
 `DESIGN.md` on disk, and one that names a `DESIGN.md` that is gone — and, where the project keeps a TOC rule, the table
-of contents too: `STALE` means regenerate first. It also refuses a design holding a current state — an `ASPIRATIONAL`
-mark, an as-built statement, a dated `✅ MEASURED` or `⏳ AS OF` claim — outside its section headed `⛔ STATE WRITTEN
-HERE BY MISTAKE`, naming each line: move it into that section, then into the boards (rule `26-canonical-design`). A state
-inside that section passes, and `CURRENT` names how many of its lines are still to be moved into the boards — moving them
-is the first work in that project. `CURRENT` means all of it holds; a project with no TOC rule passes or fails on its
-READ ORDER and its state alone. Exit 1 names each finding.
+of contents too: `STALE` means regenerate first. It also reads the design's state. A design found holding state has each
+passage of it fenced where it stands (rule `26-canonical-design`), between the fence's opening line
+`> **WARNING: STATE MENTIONED IN DESIGN.MD -- NOT ALLOWED IN DESIGN. THIS MUST MOVE TO STATE FILE WHEN WORKED ON. DO NOT
+REMOVE THIS FENCE UNTIL THE STATE IS RECONCILED AND EVERY INTENDED THING IS BUILT AS INTENDED. DO NOT SKIP THIS.**`, written
+as one line, and its closing line `> **END OF STATE FENCE**`. The check admits every line from an opening line to its
+closing line, and `CURRENT` names how many lines the fences hold that are still to be moved into the boards. It refuses
+a state mark — an `ASPIRATIONAL` mark, an `as built` statement, a `✅ MEASURED` or `⏳ AS OF` claim — outside every
+fence, naming each line, and an opening line with no closing line after it, naming where it opens. Lines inside a code
+block are not read for any of it. `CURRENT` means all of
+it holds; a project with no TOC rule passes or fails on its READ ORDER and its state alone. Exit 1 names each finding.
 
 ## NEXT
 
 - the check refuses the READ ORDER → rewrite it so it names each child design it lists, then run the check again
-- the check refuses a state, or names state still to move → the design's `⛔ STATE WRITTEN HERE BY MISTAKE` section,
-  then the `state-file` skill: each statement a row of its board, any state it needs defined with its dev flow
+- the check refuses a state mark outside every fence → fence the whole passage that holds it where it stands, every word
+  unchanged, then run the check again; it refuses a fence left open → write its closing line where its passage ends
+- the check names fenced state still to move, and the project is being worked on → the `state-file` skill: each fenced
+  passage written as rows of its board, any state it needs defined with its dev flow; the fence is removed only once the
+  state is reconciled and every intended thing is built as intended
 - the design has documents beneath it → the `top-level-design` skill's `check_reachable.py`, from this `DESIGN.md`
